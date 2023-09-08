@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class Player : Character
 {
+    public static Player I;
+
     private event Action<float> OnScrollEvent;
 
     private Camera _mainCam;
@@ -33,6 +35,8 @@ public class Player : Character
 
     private void Awake()
     {
+        I = this;
+
         _mainCam = Camera.main;
     }
 
@@ -56,12 +60,14 @@ public class Player : Character
     {
         if (collision.CompareTag("Monster"))
         {
-
+            Debug.Log("HOT2");
+            StartCoroutine(HitCo());
         }
     }
 
-    protected override IEnumerator Hit()
+    protected override IEnumerator HitCo()
     {
+        _playerAnimator.SetTrigger("IsHit");
         yield return null;
     }
 

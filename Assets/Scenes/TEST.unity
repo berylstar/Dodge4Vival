@@ -503,7 +503,7 @@ MonoBehaviour:
   attackCooltime: 0.5
   _weaponRenderer: {fileID: 1074266503}
   _weaponTransform: {fileID: 617494254}
-  bullet: {fileID: 0}
+  bullet: {fileID: 8825997391921964759, guid: 8d69403424818874d9a824bae97e4056, type: 3}
   _bulletSpawnPoint: {fileID: 742123820}
 --- !u!114 &1253164267
 MonoBehaviour:
@@ -570,10 +570,10 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1.75}
+    newSize: {x: 1, y: 1.75}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -814,9 +814,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1585936476}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: dd7b3323fce5f5048b9442b69b022acb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -883,7 +883,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -898,13 +898,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.011290312, y: 0.17935467}
-      - {x: -0.20600772, y: 0.01641123}
-      - {x: -0.22649169, y: -0.47439513}
-      - {x: 0.2767508, y: -0.46272925}
-      - {x: 0.31364584, y: -0.025229193}
-      - {x: 0.32588673, y: 0.091249764}
-      - {x: 0.28282237, y: 0.16399172}
+    - - {x: -0.012934208, y: 0.13830185}
+      - {x: -0.1776731, y: -0.020112962}
+      - {x: -0.17908919, y: -0.42399397}
+      - {x: 0.2033546, y: -0.4315469}
+      - {x: 0.24555135, y: -0.36272687}
+      - {x: 0.25593615, y: -0.073831946}
+      - {x: 0.32306576, y: 0.07646537}
   m_UseDelaunayMesh: 0
 --- !u!114 &1585936482
 MonoBehaviour:
@@ -918,5 +918,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ea1e05f92d3324c93d9a861ad9673a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 2
+  HP: 50
   speed: 3

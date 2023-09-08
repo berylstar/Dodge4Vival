@@ -100606,7 +100606,7 @@ GameObject:
   - component: {fileID: 1123656233}
   - component: {fileID: 1123656232}
   m_Layer: 5
-  m_Name: Heatt
+  m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

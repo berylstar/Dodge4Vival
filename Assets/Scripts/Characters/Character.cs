@@ -30,5 +30,5 @@ public abstract class Character : MonoBehaviour
         OnSkillEvent?.Invoke();
     }
 
-    protected abstract IEnumerator Hit();
+    protected abstract IEnumerator HitCo();
 }
