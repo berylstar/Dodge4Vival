@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     private MonsterSpawnController _monsterSpawnController;
     [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject _endPanel;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -22,5 +24,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OpenEndPanel()
+    {
+        Time.timeScale = 0.0f;
+        _endPanel.SetActive(true);
     }
 }
