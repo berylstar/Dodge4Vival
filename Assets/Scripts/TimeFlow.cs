@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class TimeFlow : MonoBehaviour
 {
-    bool IsRunning = true;
-    public TMP_Text TimeTxt;
-    float alive = 0f;
+    private bool _isRunning = true;
+    public TMP_Text timeTxt;
+    private float _alive = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +18,10 @@ public class TimeFlow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if( IsRunning )
+        if( _isRunning )
         {
-            alive += Time.deltaTime;
-            TimeTxt.text = alive.ToString("N2");
+            _alive += Time.deltaTime;
+            timeTxt.text = _alive.ToString("N2");
         }
     }
 }
