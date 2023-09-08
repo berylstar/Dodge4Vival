@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public abstract class Character : MonoBehaviour
 {
     protected event Action<Vector2> OnMoveEvent;
     protected event Action<Vector2> OnLookEvent;
@@ -29,4 +29,6 @@ public class Character : MonoBehaviour
     {
         OnSkillEvent?.Invoke();
     }
+
+    protected abstract IEnumerator Hit();
 }
