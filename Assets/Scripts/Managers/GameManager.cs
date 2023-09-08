@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text _bestScoreText;
     [SerializeField] private TMP_Text _thisScoreText;
 
+    [SerializeField] private float _endTime = 5f;
 
     void Awake()
     {
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Single.Parse(_TimeText.text) > 5.00f)
+        if (Single.Parse(_TimeText.text) > _endTime)
             GameOver();
     }
 
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene("SampleScene"); // Test version
+        SceneManager.LoadScene("MainScene"); // Test version
         //SceneManager.LoadScene("StartScene");
     }
 }
