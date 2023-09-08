@@ -18,7 +18,7 @@ public class Player : Character
     [SerializeField] private Rigidbody2D _playerRigidbody;
 
     public float playerSpeed = 5f;
-    public float attackCooltime = 3f;
+    public float attackCooltime = 0.5f;
     private bool _canAttack = true;
 
     private float _rotZ = 0f;
@@ -43,13 +43,26 @@ public class Player : Character
         OnAttackEvent += AttackEvent;
         OnScrollEvent += ScrollEvent;
 
-        // OnSkillEvent += SkillEvent;      스킬 얻으면 그때 추가
+        OnSkillEvent += SkillEvent;
     }
 
     private void Update()
     {
         // 카메라가 플레이어를 따라 이동
         _mainCam.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Monster"))
+        {
+
+        }
+    }
+
+    protected override IEnumerator Hit()
+    {
+        yield return null;
     }
 
     #region MOVE
@@ -150,7 +163,7 @@ public class Player : Character
 
     private void SkillEvent()
     {
-
+        Debug.Log("SKILL");
     }
     #endregion
 }
