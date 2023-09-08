@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     private MonsterSpawnController _monsterSpawnController;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _endPanel;
+    [SerializeField] private TMP_Text _TimeText;
+    [SerializeField] private TMP_Text _bestScoreText;
+    [SerializeField] private TMP_Text _thisScoreText;
 
-    // Start is called before the first frame update
+
     void Awake()
     {
         _monsterSpawnController = GetComponent<MonsterSpawnController>();
@@ -18,17 +24,26 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-
+        Time.timeScale = 1.0f;
     }
-    // Update is called once per frame
+
     void Update()
     {
-        
+        if (Single.Parse(_TimeText.text) > 5.00f)
+            GameOver();
     }
 
-    public void OpenEndPanel()
+    public void GameOver()
     {
         Time.timeScale = 0.0f;
+        _bestScoreText.text = _TimeText.text;
+        _thisScoreText.text = _TimeText.text;
         _endPanel.SetActive(true);
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene("SampleScene"); // Test version
+        //SceneManager.LoadScene("StartScene");
     }
 }

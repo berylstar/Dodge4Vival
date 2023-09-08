@@ -5,16 +5,18 @@ using UnityEngine;
 public class MonsterSpawnController : MonoBehaviour
 {
     [SerializeField] private GameObject _monster;
-    private Vector2 _spawnPosition = Vector2.zero;
-    private bool _canSpawn = true;
+
     private int _fullCount = 0;
+    private Vector2 _spawnPosition = Vector2.zero;
+    private float _spawnCooldownTime = 1f;
+    private bool _canSpawn = true;
 
     private void Start()
     {
-        StartCoroutine(Spawn(_fullCount, _spawnPosition));
+        StartCoroutine(Spawn(_fullCount, _spawnPosition, _spawnCooldownTime));
     }
 
-    private IEnumerator Spawn(int fullCount, Vector2 spawnPosition)
+    private IEnumerator Spawn(int fullCount, Vector2 spawnPosition, float spawnCooldownTime)
     {
         while (_canSpawn)
         {
@@ -28,10 +30,11 @@ public class MonsterSpawnController : MonoBehaviour
                 Instantiate(_monster, spawnPosition, Quaternion.identity, transform);
             }
 
-            yield return new WaitForSecondsRealtime(3f);
+            yield return new WaitForSecondsRealtime(spawnCooldownTime);
         }
     }
 
+    #region Set
     public void SetFullCount(int fullCount)
     {
         if(fullCount >= 0) {
@@ -44,4 +47,16 @@ public class MonsterSpawnController : MonoBehaviour
         _spawnPosition = spawnPosition;
     }
 
+    public void SetSpawnCooldownTime(float spawnCooldownTime)
+    {
+        if (spawnCooldownTime >= 0)
+        {
+            _spawnCooldownTime = spawnCooldownTime;
+        }
+    }
+    public void SetCanSpawn(bool canSpawn)
+    {
+        _canSpawn = canSpawn;
+    }
+    #endregion
 }
