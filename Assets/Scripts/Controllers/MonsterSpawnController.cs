@@ -32,19 +32,14 @@ public class MonsterSpawnController : MonoBehaviour
         }
     }
 
-    public void DestroyAllMonsterInvoke()
+    public void DestroyAllMonster()
     {
-        StartCoroutine(DestroyAllMonster(_spawnCooldownTime));
-    }
-
-    private IEnumerator DestroyAllMonster(float spawnCooldownTime)
-    {
-        foreach (Transform child in this.transform)
+        foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
         }
-        yield return new WaitForSecondsRealtime(spawnCooldownTime);
     }
+
     #region Set
     public void SetSpawnPosition(Vector2 spawnPosition)
     {

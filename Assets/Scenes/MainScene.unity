@@ -102112,7 +102112,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1151965904}
         m_TargetAssemblyTypeName: MonsterSpawnController, Assembly-CSharp
-        m_MethodName: DestroyAllMonsterInvoke
+        m_MethodName: DestroyAllMonster
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
