@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f51ea341b2e32074bba68b729847e8f2, type: 3}
   m_Name: MonsterFullCount
   m_EditorClassIdentifier: 
-  Value: 5
+  Value: 10
