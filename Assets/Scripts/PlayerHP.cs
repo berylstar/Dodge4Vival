@@ -6,11 +6,13 @@ using UnityEngine.Events;
 public class PlayerHP : MonoBehaviour
 {
     public IntVariable HP;
-
     public IntVariable StartingHP;
+    public IntVariable LowHP;
+
     public UnityEvent DamageEvent;
     public UnityEvent DeathEvent;
     public UnityEvent HealingEvent;
+    public UnityEvent LowHPEvent;
 
     private void Start()
     {
@@ -21,6 +23,11 @@ public class PlayerHP : MonoBehaviour
     {
         HP.ApplyChange(-1);
         DamageEvent.Invoke();
+
+        if(HP.Value > 0 && HP.Value <= LowHP.Value)
+        {
+            LowHPEvent.Invoke();
+        }
 
         if (HP.Value <= 0)
         {
