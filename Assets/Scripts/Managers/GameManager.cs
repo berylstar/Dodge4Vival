@@ -5,9 +5,9 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public GameManager M;
+    public static GameManager M;
 
-    private MonsterSpawnController _monsterSpawnController;
+    [SerializeField] private MonsterSpawnController _monsterSpawnController;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _endPanel;
     [SerializeField] private TMP_Text _TimeText;
@@ -18,15 +18,13 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        _monsterSpawnController = GetComponent<MonsterSpawnController>();
-        _monsterSpawnController.SetFullCount(2);
-        _monsterSpawnController.SetSpawnPosition(new Vector2(_player.transform.position.x, _player.transform.position.y));
         _endTime = 100f;
     }
 
     void Start()
     {
         Time.timeScale = 1.0f;
+        _monsterSpawnController.SetSpawnPosition(new Vector2(_player.transform.position.x, _player.transform.position.y));
     }
 
     void Update()
@@ -41,6 +39,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Time.timeScale = 0.0f;
+        _monsterSpawnController.SetCanSpawn(false);
         _bestScoreText.text = _TimeText.text;
         _thisScoreText.text = _TimeText.text;
         _endPanel.SetActive(true);
