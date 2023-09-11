@@ -6,15 +6,16 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager I;
-
-    [SerializeField] private MonsterSpawnController _monsterSpawnController;
+    
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _endPanel;
     [SerializeField] private TMP_Text _TimeText;
     [SerializeField] private TMP_Text _bestScoreText;
     [SerializeField] private TMP_Text _thisScoreText;
 
-    [SerializeField] private float _endTime;
+    [SerializeField] private MonsterSpawnController _monsterSpawnController;
+
+    private float _inTime = 0f;
 
     [Header("Variables")]
     public IntVariable HP;
@@ -22,11 +23,13 @@ public class GameManager : MonoBehaviour
     public IntVariable PlayerSpeed;
     public FloatVariable PlayerAttackCooltime;
 
+    public FloatVariable GameEndTime;
+    public IntVariable MonsterFullCount;
+
     void Awake()
     {
         I = this;
 
-        _endTime = 100f;
         InitialVariables();
     }
 
@@ -38,9 +41,14 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Single.Parse(_TimeText.text) > _endTime)
+        if (_inTime > GameEndTime.f)
         {
             GameOver();
+        }
+        else
+        {
+            _inTime += Time.deltaTime;
+            _TimeText.text = _inTime.ToString("N2");
         }
     }
 

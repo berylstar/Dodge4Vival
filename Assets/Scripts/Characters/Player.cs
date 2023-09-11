@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D _playerRigidbody;
 
     private bool _canAttack = true;
+    private bool _invincible = false;
     private float _rotZ = 0f;
 
     [Header("Weapon")]
@@ -42,9 +43,9 @@ public class Player : MonoBehaviour
         _mainCam.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Monster"))
+        if (collision.CompareTag("Monster") && !_invincible)
         {
             StartCoroutine(HitCo());
         }
@@ -53,7 +54,6 @@ public class Player : MonoBehaviour
     private IEnumerator HitCo()
     {
         GameManager.I.HP.i -= 1;
-        EventManager.I.PlayerHitEvent.Invoke();
 
         if (GameManager.I.HP.i <= 0)
         {
@@ -65,9 +65,16 @@ public class Player : MonoBehaviour
             EventManager.I.PlayerLowHPEvent.Invoke();
         }
         else
+        {
+            EventManager.I.PlayerHitEvent.Invoke();
+        }
 
         _playerAnimator.SetTrigger("IsHit");
-        yield return null;
+        _playerRenderer.color = new Color32(200, 100, 100, 255);
+        _invincible = true;
+        yield return new WaitForSecondsRealtime(1f);
+        _playerRenderer.color = Color.white;
+        _invincible = false;
     }
 
     public void OnMove(InputValue value)
