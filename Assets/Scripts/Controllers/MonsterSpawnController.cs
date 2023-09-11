@@ -11,7 +11,7 @@ public class MonsterSpawnController : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(Spawn(_fullCount.Value, _spawnPosition, _spawnCooldownTime));
+        StartCoroutine(Spawn(_fullCount.i, _spawnPosition, _spawnCooldownTime));
     }
 
     private IEnumerator Spawn(int fullCount, Vector2 spawnPosition, float spawnCooldownTime)

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : Character
+public class Monster : MonoBehaviour
 {
     [Header("Status")]
     public int HP;
@@ -22,15 +22,6 @@ public class Monster : Character
         _col = GetComponent<PolygonCollider2D>();
         _sr = GetComponent<SpriteRenderer>();
         _ani = GetComponent<Animator>();
-    }
-
-    private void Start()
-    {
-        OnMoveEvent += MonsterMove;
-
-        _target = Player.I.transform;
-
-        CallMoveEvent(Vector2.up);
     }
 
     private void FixedUpdate()
@@ -73,7 +64,7 @@ public class Monster : Character
         Destroy(this.gameObject);
     }
 
-    protected override IEnumerator HitCo()
+    IEnumerator HitCo()
     {
         _ani.SetTrigger("IsHit");
 

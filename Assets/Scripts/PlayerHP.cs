@@ -9,6 +9,7 @@ public class PlayerHP : MonoBehaviour
     public IntVariable StartingHP;
     public IntVariable LowHP;
 
+    [Header("Events")]
     public UnityEvent DamageEvent;
     public UnityEvent DeathEvent;
     public UnityEvent HealingEvent;
@@ -16,29 +17,28 @@ public class PlayerHP : MonoBehaviour
 
     private void Start()
     {
-        HP.SetValue(StartingHP);
+        HP.i = StartingHP.i;
     }
 
     public void OnTakeDamage()
     {
-        HP.ApplyChange(-1);
+        HP.i -= 1;
         DamageEvent.Invoke();
 
-        if(HP.Value > 0 && HP.Value <= LowHP.Value)
+        if (HP.i <= 0)
+        {
+            HP.i = 0;
+            DeathEvent.Invoke();
+        }
+        else if (HP.i <= LowHP.i)
         {
             LowHPEvent.Invoke();
-        }
-
-        if (HP.Value <= 0)
-        {
-            HP.SetValue(0);
-            DeathEvent.Invoke();
         }
     }
 
     public void OnHealing()
     {
-        HP.ApplyChange(1);
+        // HP.i += 1;
         HealingEvent.Invoke();
     }
 
