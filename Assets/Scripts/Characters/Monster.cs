@@ -22,6 +22,8 @@ public class Monster : MonoBehaviour
         _col = GetComponent<PolygonCollider2D>();
         _sr = GetComponent<SpriteRenderer>();
         _ani = GetComponent<Animator>();
+
+        _target = GameObject.Find("Player").transform;
     }
 
     private void FixedUpdate()
