@@ -12,6 +12,7 @@ public class EventManager : MonoBehaviour
     public UnityEvent PlayerDieEvent;
     public UnityEvent PlayerHealingEvent;
     public UnityEvent PlayerLowHPEvent;
+    public UnityEvent PlayerInvencibleEvent;
     public UnityEvent MonsterAllDestroyed;
     public UnityEvent MonsterDieEvent;
 
