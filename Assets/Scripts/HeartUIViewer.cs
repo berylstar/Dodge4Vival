@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class HeartUIViewer : MonoBehaviour
 {
     [Header("UI References")]
-    [SerializeField] private Image _gameObject;
+    [SerializeField] private Image _image;
 
     [SerializeField] private HeartUI _heartUI;
     [SerializeField] private IntVariable _hp;
@@ -32,11 +32,11 @@ public class HeartUIViewer : MonoBehaviour
     {
         for(int i = 0; i < _hp.i; i++)
         {
-            _gameObject.sprite = _heartUI.Sprite;
+            _image.sprite = _heartUI.Sprite;
             Vector2 newPosition = new Vector2();
             newPosition.x = _uiPositions[i % _positionLength].x;
             newPosition.y = _uiPositions[i % _positionLength].y + (i / _positionLength * 25);
-            _clones.Add(Instantiate(_gameObject, newPosition, Quaternion.identity, transform));
+            _clones.Add(Instantiate(_image, newPosition, Quaternion.identity, transform));
         }
     }
 
@@ -46,7 +46,7 @@ public class HeartUIViewer : MonoBehaviour
         Vector2 newPosition = new Vector2();
         newPosition.x = _uiPositions[addIndex % _positionLength].x;
         newPosition.y = _uiPositions[addIndex % _positionLength].y + (addIndex / _positionLength * 25);
-        _clones.Add(Instantiate(_gameObject, newPosition, Quaternion.identity, transform));
+        _clones.Add(Instantiate(_image, newPosition, Quaternion.identity, transform));
     }
 
     public void RemoveHeart()

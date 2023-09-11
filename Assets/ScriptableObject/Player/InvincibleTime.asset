@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e9625ed681a2b41aa25c98ec6a6106, type: 3}
   m_Name: InvincibleTime
   m_EditorClassIdentifier: 
-  Value: 5
+  Value: 10
