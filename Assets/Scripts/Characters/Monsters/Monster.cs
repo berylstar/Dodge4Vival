@@ -42,6 +42,7 @@ public abstract class Monster : MonoBehaviour
         }
         else if (collision.CompareTag("Wall"))
         {
+            EventManager.I.MonsterDieEvent.Invoke();
             Destroy(this.gameObject);
         }
     }
@@ -58,6 +59,7 @@ public abstract class Monster : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(0.5f);
 
+        EventManager.I.MonsterDieEvent.Invoke();
         Destroy(this.gameObject);
     }
 
