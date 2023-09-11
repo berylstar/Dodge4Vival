@@ -76,9 +76,4 @@ public class Monster : MonoBehaviour
         _isHit = false;
         _sr.color = Color.white;
     }
-
-    private void MonsterMove(Vector2 dir)
-    {
-
-    }
 }

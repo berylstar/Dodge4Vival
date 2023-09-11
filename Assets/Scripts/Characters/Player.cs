@@ -11,8 +11,8 @@ public class Player : MonoBehaviour
     private event Action<Vector2> OnMoveEvent;
     private event Action<Vector2> OnLookEvent;
     private event Action OnAttackEvent;
-    private event Action OnSkillEvent;
     private event Action<float> OnScrollEvent;
+    private event Action OnSkillEvent;
 
     private Camera _mainCam;
     private readonly int MIN_CAMERA_DISTANCE = 2;
@@ -23,8 +23,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Animator _playerAnimator;
     [SerializeField] private Rigidbody2D _playerRigidbody;
 
-    public float playerSpeed = 5f;
-    public float attackCooltime = 0.5f;
+    public IntVariable playerSpeed;
+    public FloatVariable attackCooltime;
     private bool _canAttack = true;
 
     private float _rotZ = 0f;
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         OnSkillEvent += SkillEvent;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // 카메라가 플레이어를 따라 이동
         _mainCam.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
     private void MoveEvent(Vector2 direction)
     {
         _playerAnimator.SetBool("IsMoving", (direction.magnitude != 0));
-        _playerRigidbody.velocity = direction * playerSpeed;
+        _playerRigidbody.velocity = direction * playerSpeed.i;
     }
     #endregion
 
@@ -117,7 +117,7 @@ public class Player : MonoBehaviour
     }
     #endregion
 
-    #region SHOOT
+    #region ATTACK
     private void CallAttackEvent()
     {
         OnAttackEvent?.Invoke();
@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
     private IEnumerator ShootCoolTimeCo()
     {
         _canAttack = false;
-        yield return new WaitForSecondsRealtime(attackCooltime);
+        yield return new WaitForSecondsRealtime(attackCooltime.f);
         _canAttack = true;
     }
     #endregion

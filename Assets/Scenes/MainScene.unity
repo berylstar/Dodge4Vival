@@ -131,6 +131,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1227732862296299829, guid: a7788a5349092fe4b9c2980a7444ca8e, type: 3}
+      propertyPath: playerSpeed
+      value: 
+      objectReference: {fileID: 11400000, guid: 86ba3d75fc45cf947b64bac722b38988, type: 2}
+    - target: {fileID: 1227732862296299829, guid: a7788a5349092fe4b9c2980a7444ca8e, type: 3}
+      propertyPath: attackCooltime
+      value: 
+      objectReference: {fileID: 11400000, guid: 04bf88f03a4c5d24ba4d9c62d3e5e379, type: 2}
     - target: {fileID: 3912000574706692772, guid: a7788a5349092fe4b9c2980a7444ca8e, type: 3}
       propertyPath: m_RootOrder
       value: 12
