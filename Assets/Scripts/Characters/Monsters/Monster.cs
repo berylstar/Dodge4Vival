@@ -8,10 +8,10 @@ public abstract class Monster : MonoBehaviour
     public int HP;
     public float speed;
 
-    protected Rigidbody2D _rb;
-    private PolygonCollider2D _col;
-    protected SpriteRenderer _sr;
-    private Animator _ani;
+    [SerializeField] protected Rigidbody2D _rb;
+    [SerializeField] private PolygonCollider2D _col;
+    [SerializeField] protected SpriteRenderer _sr;
+    [SerializeField] private Animator _ani;
 
     protected Transform _target;
 
@@ -19,11 +19,6 @@ public abstract class Monster : MonoBehaviour
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        _col = GetComponent<PolygonCollider2D>();
-        _sr = GetComponent<SpriteRenderer>();
-        _ani = GetComponent<Animator>();
-
         _target = GameObject.Find("Player").transform;
     }
 

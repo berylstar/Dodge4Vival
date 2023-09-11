@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
     private IEnumerator HitCo()
     {
         GameManager.I.HP.i -= 1;
+        EventManager.I.PlayerHitEvent.Invoke();
 
         if (GameManager.I.HP.i <= 0)
         {
@@ -63,10 +64,6 @@ public class Player : MonoBehaviour
         else if (GameManager.I.HP.i <= GameManager.I.LowHP.i)
         {
             EventManager.I.PlayerLowHPEvent.Invoke();
-        }
-        else
-        {
-            EventManager.I.PlayerHitEvent.Invoke();
         }
 
         _playerAnimator.SetTrigger("IsHit");

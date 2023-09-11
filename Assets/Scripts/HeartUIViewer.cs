@@ -14,6 +14,8 @@ public class HeartUIViewer : MonoBehaviour
     private Vector2[] _uiPositions;
     private int _positionLength = 7;
 
+    [SerializeField] private Transform hearts;
+
     public void Awake()
     {
         _uiPositions = new Vector2[_positionLength];
@@ -26,6 +28,8 @@ public class HeartUIViewer : MonoBehaviour
     public void Start()
     {
         DisplayHeart();
+
+        EventManager.I.PlayerHitEvent.AddListener(RemoveHeart);
     }
 
     public void DisplayHeart()
@@ -33,10 +37,11 @@ public class HeartUIViewer : MonoBehaviour
         for(int i = 0; i < _hp.i; i++)
         {
             _gameObject.sprite = _heartUI.Sprite;
-            Vector2 newPosition = new Vector2();
-            newPosition.x = _uiPositions[i % _positionLength].x;
-            newPosition.y = _uiPositions[i % _positionLength].y + (i / _positionLength * 25);
-            _clones.Add(Instantiate(_gameObject, newPosition, Quaternion.identity, transform));
+            //Vector2 newPosition = new Vector2();
+            //newPosition.x = _uiPositions[i % _positionLength].x;
+            //newPosition.y = _uiPositions[i % _positionLength].y + (i / _positionLength * 25);
+            //_clones.Add(Instantiate(_gameObject, newPosition, Quaternion.identity, hearts));
+            _clones.Add(Instantiate(_gameObject, hearts));
         }
     }
 
@@ -46,7 +51,7 @@ public class HeartUIViewer : MonoBehaviour
         Vector2 newPosition = new Vector2();
         newPosition.x = _uiPositions[addIndex % _positionLength].x;
         newPosition.y = _uiPositions[addIndex % _positionLength].y + (addIndex / _positionLength * 25);
-        _clones.Add(Instantiate(_gameObject, newPosition, Quaternion.identity, transform));
+        _clones.Add(Instantiate(_gameObject, newPosition, Quaternion.identity, hearts));
     }
 
     public void RemoveHeart()
@@ -58,6 +63,5 @@ public class HeartUIViewer : MonoBehaviour
             _clones.RemoveAt(lastIndex);
             Destroy(clone.gameObject);
         }
-        
     }
 }
