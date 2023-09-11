@@ -22,6 +22,8 @@ public class Monster : MonoBehaviour
         _col = GetComponent<PolygonCollider2D>();
         _sr = GetComponent<SpriteRenderer>();
         _ani = GetComponent<Animator>();
+
+        _target = GameObject.Find("Player").transform;
     }
 
     private void FixedUpdate()
@@ -75,10 +77,5 @@ public class Monster : MonoBehaviour
 
         _isHit = false;
         _sr.color = Color.white;
-    }
-
-    private void MonsterMove(Vector2 dir)
-    {
-
     }
 }

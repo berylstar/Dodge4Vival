@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdbb0d873ef2a744184d6c38384f1b2f, type: 3}
-  m_Name: OnPlayerDamaged
+  m_Name: OnPlayerDie
   m_EditorClassIdentifier: 

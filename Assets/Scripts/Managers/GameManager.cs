@@ -5,7 +5,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager M;
+    public static GameManager I;
 
     [SerializeField] private MonsterSpawnController _monsterSpawnController;
     [SerializeField] private GameObject _player;
@@ -16,9 +16,18 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float _endTime;
 
+    [Header("Variables")]
+    public IntVariable HP;
+    public IntVariable LowHP;
+    public IntVariable PlayerSpeed;
+    public FloatVariable PlayerAttackCooltime;
+
     void Awake()
     {
+        I = this;
+
         _endTime = 100f;
+        InitialVariables();
     }
 
     void Start()
@@ -33,7 +42,13 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
-           
+    }
+
+    private void InitialVariables()
+    {
+        HP.i = 5;
+        PlayerSpeed.i = 5;
+        PlayerAttackCooltime.f = 0.5f;
     }
 
     public void GameOver()

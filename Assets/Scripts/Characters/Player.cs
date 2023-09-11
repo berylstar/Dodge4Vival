@@ -2,17 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     public static Player I;
-
-    private event Action<Vector2> OnMoveEvent;
-    private event Action<Vector2> OnLookEvent;
-    private event Action OnAttackEvent;
-    private event Action OnSkillEvent;
-    private event Action<float> OnScrollEvent;
 
     private Camera _mainCam;
     private readonly int MIN_CAMERA_DISTANCE = 2;
@@ -23,10 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Animator _playerAnimator;
     [SerializeField] private Rigidbody2D _playerRigidbody;
 
-    public float playerSpeed = 5f;
-    public float attackCooltime = 0.5f;
     private bool _canAttack = true;
-
     private float _rotZ = 0f;
 
     [Header("Weapon")]
@@ -44,17 +36,7 @@ public class Player : MonoBehaviour
         _mainCam = Camera.main;
     }
 
-    private void Start()
-    {
-        OnMoveEvent += MoveEvent;
-        OnLookEvent += LookEvent;
-        OnAttackEvent += AttackEvent;
-        OnScrollEvent += ScrollEvent;
-
-        OnSkillEvent += SkillEvent;
-    }
-
-    private void Update()
+    private void FixedUpdate()
     {
         // 카메라가 플레이어를 따라 이동
         _mainCam.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
@@ -70,33 +52,30 @@ public class Player : MonoBehaviour
 
     private IEnumerator HitCo()
     {
+        GameManager.I.HP.i -= 1;
+        EventManager.I.PlayerHitEvent.Invoke();
+
+        if (GameManager.I.HP.i <= 0)
+        {
+            GameManager.I.HP.i = 0;
+            EventManager.I.PlayerDieEvent.Invoke();
+        }
+        else if (GameManager.I.HP.i <= GameManager.I.LowHP.i)
+        {
+            EventManager.I.PlayerLowHPEvent.Invoke();
+        }
+        else
+
         _playerAnimator.SetTrigger("IsHit");
         yield return null;
-    }
-
-    #region MOVE
-    private void CallMoveEvent(Vector2 dir)
-    {
-        OnMoveEvent?.Invoke(dir);
     }
 
     public void OnMove(InputValue value)
     {
         Vector2 moveInput = value.Get<Vector2>().normalized;
-        CallMoveEvent(moveInput);
-    }
 
-    private void MoveEvent(Vector2 direction)
-    {
-        _playerAnimator.SetBool("IsMoving", (direction.magnitude != 0));
-        _playerRigidbody.velocity = direction * playerSpeed;
-    }
-    #endregion
-
-    #region LOOK
-    private void CallLookEvent(Vector2 dir)
-    {
-        OnLookEvent?.Invoke(dir);
+        _playerAnimator.SetBool("IsMoving", (moveInput.magnitude != 0));
+        _playerRigidbody.velocity = moveInput * GameManager.I.PlayerSpeed.i;
     }
 
     public void OnLook(InputValue value)
@@ -105,91 +84,51 @@ public class Player : MonoBehaviour
         Vector2 newAim = (worldPos - (Vector2)transform.position).normalized;
 
         if (newAim.magnitude >= 0.5f)
-            CallLookEvent(newAim);
-    }
-
-    private void LookEvent(Vector2 direction)
-    {
-        _rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        _weaponRenderer.flipY = Mathf.Abs(_rotZ) > 90f;
-        _playerRenderer.flipX = Mathf.Abs(_rotZ) > 90f;
-        _weaponTransform.rotation = Quaternion.Euler(0, 0, _rotZ);
-    }
-    #endregion
-
-    #region SHOOT
-    private void CallAttackEvent()
-    {
-        OnAttackEvent?.Invoke();
+        {
+            _rotZ = Mathf.Atan2(newAim.y, newAim.x) * Mathf.Rad2Deg;
+            _weaponRenderer.flipY = Mathf.Abs(_rotZ) > 90f;
+            _playerRenderer.flipX = Mathf.Abs(_rotZ) > 90f;
+            _weaponTransform.rotation = Quaternion.Euler(0, 0, _rotZ);
+        }
     }
 
     public void OnAttack(InputValue value)
     {
-        if (value.isPressed)
-        {
-            CallAttackEvent();
-        }
-    }
-
-    private void AttackEvent()
-    {
-        if (_canAttack)
+        if (value.isPressed && _canAttack)
         {
             Instantiate(bullet, _bulletSpawnPoint.position, Quaternion.Euler(0, 0, _rotZ - 90));
-            StartCoroutine(ShootCoolTimeCo());
+            StartCoroutine(AttackCoolTimeCo());
         }
     }
 
-    private IEnumerator ShootCoolTimeCo()
+    private IEnumerator AttackCoolTimeCo()
     {
         _canAttack = false;
-        yield return new WaitForSecondsRealtime(attackCooltime);
+
+        yield return new WaitForSecondsRealtime(GameManager.I.PlayerAttackCooltime.f);
+
         _canAttack = true;
     }
-    #endregion
 
-    #region SCROLL
-    protected void CallScrollEvent(float value)
-    {
-        OnScrollEvent?.Invoke(value);
-    }
-
-    // InputSystem의 Scroll
     public void OnScroll(InputValue value)
     {
-        CallScrollEvent(value.Get<float>());
-    }
+        float f = value.Get<float>();
 
-    private void ScrollEvent(float value)
-    {
-        if (value > 0)
+        if (f > 0)
         {
             _mainCam.orthographicSize -= (_mainCam.orthographicSize > MIN_CAMERA_DISTANCE) ? 0.5f : 0f;
         }
-        else if (value < 0)
+        else if (f < 0)
         {
             _mainCam.orthographicSize += (_mainCam.orthographicSize < MAX_CAMERA_DISTANCE) ? 0.5f : 0f;
         }
-    }
-    #endregion
-
-    #region SKill
-    private void CallSkillEvent()
-    {
-        OnSkillEvent?.Invoke();
     }
 
     public void OnSkill(InputValue value)
     {
         if (value.isPressed)
         {
-            CallSkillEvent();
+            Debug.Log("SKILL");
         }
     }
-
-    private void SkillEvent()
-    {
-        Debug.Log("SKILL");
-    }
-    #endregion
 }
