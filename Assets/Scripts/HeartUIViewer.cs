@@ -30,7 +30,7 @@ public class HeartUIViewer : MonoBehaviour
 
     public void DisplayHeart()
     {
-        for(int i = 0; i < _hp.Value; i++)
+        for(int i = 0; i < _hp.i; i++)
         {
             _gameObject.sprite = _heartUI.Sprite;
             Vector2 newPosition = new Vector2();

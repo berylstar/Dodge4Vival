@@ -4,10 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : Character
+public class Player : MonoBehaviour
 {
     public static Player I;
 
+    private event Action<Vector2> OnMoveEvent;
+    private event Action<Vector2> OnLookEvent;
+    private event Action OnAttackEvent;
+    private event Action OnSkillEvent;
     private event Action<float> OnScrollEvent;
 
     private Camera _mainCam;
@@ -64,14 +68,18 @@ public class Player : Character
         }
     }
 
-    protected override IEnumerator HitCo()
+    private IEnumerator HitCo()
     {
         _playerAnimator.SetTrigger("IsHit");
         yield return null;
     }
 
     #region MOVE
-    // InputSystem¿« Move
+    private void CallMoveEvent(Vector2 dir)
+    {
+        OnMoveEvent?.Invoke(dir);
+    }
+
     public void OnMove(InputValue value)
     {
         Vector2 moveInput = value.Get<Vector2>().normalized;
@@ -86,7 +94,11 @@ public class Player : Character
     #endregion
 
     #region LOOK
-    // InputSystem¿« Look
+    private void CallLookEvent(Vector2 dir)
+    {
+        OnLookEvent?.Invoke(dir);
+    }
+
     public void OnLook(InputValue value)
     {
         Vector2 worldPos = _mainCam.ScreenToWorldPoint(value.Get<Vector2>());
@@ -106,6 +118,11 @@ public class Player : Character
     #endregion
 
     #region SHOOT
+    private void CallAttackEvent()
+    {
+        OnAttackEvent?.Invoke();
+    }
+
     public void OnAttack(InputValue value)
     {
         if (value.isPressed)
@@ -157,7 +174,11 @@ public class Player : Character
     #endregion
 
     #region SKill
-    // InputSystem¿« Skill
+    private void CallSkillEvent()
+    {
+        OnSkillEvent?.Invoke();
+    }
+
     public void OnSkill(InputValue value)
     {
         if (value.isPressed)

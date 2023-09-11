@@ -1,5 +1,5 @@
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,61 +8,38 @@ public class PlayerHP : MonoBehaviour
     public IntVariable HP;
     public IntVariable StartingHP;
     public IntVariable LowHP;
-    public FloatVariable InvincibleTime;
 
+    [Header("Events")]
     public UnityEvent DamageEvent;
     public UnityEvent DeathEvent;
     public UnityEvent HealingEvent;
     public UnityEvent LowHPEvent;
 
-    private bool _isInvincible = false;
-    private Coroutine _coroutine;
-
     private void Start()
     {
-        HP.SetValue(StartingHP);
+        HP.i = StartingHP.i;
     }
 
     public void OnTakeDamage()
     {
-        if (!_isInvincible)
+        HP.i -= 1;
+        DamageEvent.Invoke();
+
+        if (HP.i <= 0)
         {
-            HP.ApplyChange(-1);
-            DamageEvent.Invoke();
+            HP.i = 0;
+            DeathEvent.Invoke();
         }
-
-
-        if (HP.Value > 0 && HP.Value <= LowHP.Value)
+        else if (HP.i <= LowHP.i)
         {
             LowHPEvent.Invoke();
-        }
-
-        if (HP.Value <= 0)
-        {
-            HP.SetValue(0);
-            DeathEvent.Invoke();
         }
     }
 
     public void OnHealing()
     {
-        HP.ApplyChange(1);
+        // HP.i += 1;
         HealingEvent.Invoke();
     }
 
-    public void OnInvencible()
-    {
-        if(_coroutine != null)
-        {
-            StopCoroutine(_coroutine);
-        }
-        _coroutine = StartCoroutine(Invincible());
-    }
-
-    private IEnumerator Invincible()
-    {
-        _isInvincible = true;
-        yield return new WaitForSecondsRealtime(InvincibleTime.Value);
-        _isInvincible = false;
-    }
 }
