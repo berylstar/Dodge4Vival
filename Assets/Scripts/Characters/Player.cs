@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Ä«¸Þ¶ó°¡ ÇÃ·¹ÀÌ¾î¸¦ µû¶ó ÀÌµ¿
+        // Ä«ï¿½Þ¶ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         _mainCam.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }
 
@@ -55,14 +55,22 @@ public class Player : MonoBehaviour
     {
         GameManager.I.HP.i -= 1;
         EventManager.I.PlayerHitEvent.Invoke();
+        if (!_invincible)
+        {
+            GameManager.I.HP.i -= 1;
 
-        if (GameManager.I.HP.i <= 0)
-        {
-            GameManager.I.HP.i = 0;
-            EventManager.I.PlayerDieEvent.Invoke();
+            if (GameManager.I.HP.i <= 0)
+            {
+                GameManager.I.HP.i = 0;
+                EventManager.I.PlayerDieEvent.Invoke();
+            }
+            else
+            {
+                EventManager.I.PlayerHitEvent.Invoke();
+            }
         }
-        else if (GameManager.I.HP.i <= GameManager.I.LowHP.i)
-        {
+
+        if (GameManager.I.HP.i <= GameManager.I.LowHP.i)
             EventManager.I.PlayerLowHPEvent.Invoke();
         }
 

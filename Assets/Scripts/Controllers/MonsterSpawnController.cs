@@ -3,27 +3,33 @@ using UnityEngine;
 
 public class MonsterSpawnController : MonoBehaviour
 {
-    [SerializeField] private GameObject _monster;
-    private Vector2 _spawnPosition = Vector2.zero;
-    private float _spawnCooldownTime = 1f;
+    public IntVariable MonsterFullCount;
+    public FloatVariable SpawnCooldownTime;
+
+    [SerializeField] private GameObject[] _monsters;
+    [SerializeField] private GameObject _player;
+
+    private Vector2 _spawnPosition;
     private bool _canSpawn = true;
 
     private void Start()
     {
-        StartCoroutine(Spawn(GameManager.I.MonsterFullCount.i, _spawnPosition, _spawnCooldownTime));
+        _spawnPosition = _player.transform.position;
+        StartCoroutine(Spawn(MonsterFullCount.i, SpawnCooldownTime.f));
     }
 
-    private IEnumerator Spawn(int fullCount, Vector2 spawnPosition, float spawnCooldownTime)
+    private IEnumerator Spawn(int fullCount, float spawnCooldownTime)
     {
         while (_canSpawn)
         {
+            _spawnPosition = _player.transform.position;
             if (transform.childCount < fullCount)
             {
                 float x = Random.Range(-8.0f, 8.0f);
                 float y = Random.Range(-5.0f, 5.0f);
-                spawnPosition.x += x;
-                spawnPosition.y += y;
-                Instantiate(_monster, spawnPosition, Quaternion.identity, transform);
+                _spawnPosition.x += x;
+                _spawnPosition.y += y;
+                Instantiate(_monsters[0], _spawnPosition, Quaternion.identity, transform);
             }
 
             yield return new WaitForSecondsRealtime(spawnCooldownTime);
@@ -34,7 +40,8 @@ public class MonsterSpawnController : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-            Destroy(child.gameObject);
+            if(child.CompareTag(_monsters[0].tag))
+                Destroy(child.gameObject);
         }
     }
 
@@ -44,13 +51,6 @@ public class MonsterSpawnController : MonoBehaviour
         _spawnPosition = spawnPosition;
     }
 
-    public void SetSpawnCooldownTime(float spawnCooldownTime)
-    {
-        if (spawnCooldownTime >= 0)
-        {
-            _spawnCooldownTime = spawnCooldownTime;
-        }
-    }
     public void SetCanSpawn(bool canSpawn)
     {
         _canSpawn = canSpawn;
