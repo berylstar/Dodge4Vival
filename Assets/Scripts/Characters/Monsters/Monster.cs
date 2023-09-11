@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : MonoBehaviour
+public abstract class Monster : MonoBehaviour
 {
     [Header("Status")]
     public int HP;
     public float speed;
 
-    private Rigidbody2D _rb;
+    protected Rigidbody2D _rb;
     private PolygonCollider2D _col;
-    private SpriteRenderer _sr;
+    protected SpriteRenderer _sr;
     private Animator _ani;
 
-    private Transform _target;
-    private bool _isHit = false;
+    protected Transform _target;
+
+    protected bool _isHit = false;
 
     private void Awake()
     {
@@ -26,17 +27,7 @@ public class Monster : MonoBehaviour
         _target = GameObject.Find("Player").transform;
     }
 
-    private void FixedUpdate()
-    {
-        Vector3 targetVector = _target.position - transform.position;
-
-        _sr.flipX = targetVector.x < 0;
-
-        if (targetVector.magnitude < 0.5f || _isHit)
-            _rb.velocity = Vector2.zero;
-        else
-            _rb.velocity = (speed * targetVector.normalized);
-    }
+    protected abstract void Move(Vector3 dir);
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -48,6 +39,10 @@ public class Monster : MonoBehaviour
                 StartCoroutine(Disappear());
             else
                 StartCoroutine(HitCo());
+        }
+        else if (collision.CompareTag("Wall"))
+        {
+            Destroy(this.gameObject);
         }
     }
 
