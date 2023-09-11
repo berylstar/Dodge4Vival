@@ -4,22 +4,21 @@ using UnityEngine;
 public class MonsterSpawnController : MonoBehaviour
 {
     [SerializeField] private GameObject _monster;
-
-    private int _fullCount = 0;
+    [SerializeField] private IntVariable _fullCount;
     private Vector2 _spawnPosition = Vector2.zero;
     private float _spawnCooldownTime = 1f;
     private bool _canSpawn = true;
 
     private void Start()
     {
-        StartCoroutine(Spawn(_fullCount, _spawnPosition, _spawnCooldownTime));
+        StartCoroutine(Spawn(_fullCount.Value, _spawnPosition, _spawnCooldownTime));
     }
 
     private IEnumerator Spawn(int fullCount, Vector2 spawnPosition, float spawnCooldownTime)
     {
         while (_canSpawn)
         {
-            if (transform.childCount <= fullCount)
+            if (transform.childCount < fullCount)
             {
 
                 float x = Random.Range(-8.0f, 8.0f);
@@ -33,14 +32,15 @@ public class MonsterSpawnController : MonoBehaviour
         }
     }
 
-    #region Set
-    public void SetFullCount(int fullCount)
+    public void DestroyAllMonster()
     {
-        if(fullCount >= 0) {
-            _fullCount = fullCount;
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
         }
     }
 
+    #region Set
     public void SetSpawnPosition(Vector2 spawnPosition)
     {
         _spawnPosition = spawnPosition;
