@@ -14,6 +14,7 @@ public class Monster : Character
     private Animator _ani;
 
     private Transform _target;
+    private bool _isHit = false;
 
     private void Awake()
     {
@@ -38,7 +39,7 @@ public class Monster : Character
 
         _sr.flipX = targetVector.x < 0;
 
-        if (targetVector.magnitude < 1f)
+        if (targetVector.magnitude < 0.5f || _isHit)
             _rb.velocity = Vector2.zero;
         else
             _rb.velocity = (speed * targetVector.normalized);
@@ -59,7 +60,7 @@ public class Monster : Character
 
     private IEnumerator Disappear()
     {
-        speed = 0f;
+        _isHit = true;
         _col.enabled = false;
         _sr.color = new Color32(255, 255, 255, 100);
 
@@ -76,18 +77,17 @@ public class Monster : Character
     {
         _ani.SetTrigger("IsHit");
 
-        float temp = speed;
-        speed = 0f;
+        _isHit = true;
         _sr.color = new Color32(200, 100, 100, 255);
 
         yield return new WaitForSecondsRealtime(0.2f);
 
-        speed = temp;
+        _isHit = false;
         _sr.color = Color.white;
     }
 
     private void MonsterMove(Vector2 dir)
     {
-        Debug.Log("Monster Move");
+
     }
 }

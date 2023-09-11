@@ -60,7 +60,6 @@ public class Player : Character
     {
         if (collision.CompareTag("Monster"))
         {
-            Debug.Log("HOT2");
             StartCoroutine(HitCo());
         }
     }
