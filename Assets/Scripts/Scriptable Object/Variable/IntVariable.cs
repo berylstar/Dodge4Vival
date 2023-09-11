@@ -3,25 +3,15 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Scriptable Objects/Int Variable")]
 public class IntVariable : ScriptableObject
 {
-    public int Value;
+    public int i;
 
-    public void SetValue(int value)
+    public void Set(int v)
     {
-        Value = value;
+        i = v;
     }
 
-    public void SetValue(IntVariable value)
+    public void Change(int v)
     {
-        Value = value.Value;
-    }
-
-    public void ApplyChange(int amount)
-    {
-        Value += amount;
-    }
-
-    public void ApplyChange(IntVariable amount)
-    {
-        Value += amount.Value;
+        i += v;
     }
 }

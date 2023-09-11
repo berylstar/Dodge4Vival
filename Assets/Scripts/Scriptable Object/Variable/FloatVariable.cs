@@ -3,25 +3,15 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Scriptable Objects/Float Variable")]
 public class FloatVariable : ScriptableObject
 {
-    public float Value;
+    public float f;
 
-    public void SetValue(float value)
+    public void Set(float v)
     {
-        Value = value;
+        f = v;
     }
 
-    public void SetValue(FloatVariable value)
+    public void Change(float v)
     {
-        Value = value.Value;
-    }
-
-    public void ApplyChange(float amount)
-    {
-        Value += amount;
-    }
-
-    public void ApplyChange(FloatVariable amount)
-    {
-        Value += amount.Value;
+        f += v;
     }
 }
