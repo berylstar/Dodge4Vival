@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7526443275718491045}
   - component: {fileID: 8068015663450956232}
   - component: {fileID: 506548399262375434}
-  - component: {fileID: 3184076601006382719}
   m_Layer: 0
   m_Name: MonsterImp
   m_TagString: Monster
@@ -34,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1991733971954595841
 SpriteRenderer:
@@ -188,17 +187,3 @@ PolygonCollider2D:
       - {x: 0.25593615, y: -0.073831946}
       - {x: 0.32306576, y: 0.07646537}
   m_UseDelaunayMesh: 0
---- !u!114 &3184076601006382719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4842485249446157051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63ea1e05f92d3324c93d9a861ad9673a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 50
-  speed: 3

@@ -7,10 +7,16 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && _item.ItemEvent != null)
+        if (collision.CompareTag("Player"))
         {
-            _item.ItemEvent.Raise();
+            if (_item.ItemEvent != null)
+                _item.ItemEvent.Raise();
             Destroy(gameObject);
         }
+    }
+
+    public void SetItemData(ItemData item)
+    {
+        _item = item;
     }
 }

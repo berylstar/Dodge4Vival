@@ -13,6 +13,7 @@ public class EventManager : MonoBehaviour
     public UnityEvent PlayerHealingEvent;
     public UnityEvent PlayerLowHPEvent;
     public UnityEvent MonsterAllDestroyed;
+    public UnityEvent MonsterDieEvent;
 
     private void Awake()
     {
