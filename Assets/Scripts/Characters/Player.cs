@@ -53,21 +53,23 @@ public class Player : MonoBehaviour
 
     private IEnumerator HitCo()
     {
-        GameManager.I.HP.i -= 1;
+        if (!_invincible)
+        {
+            GameManager.I.HP.i -= 1;
 
-        if (GameManager.I.HP.i <= 0)
-        {
-            GameManager.I.HP.i = 0;
-            EventManager.I.PlayerDieEvent.Invoke();
+            if (GameManager.I.HP.i <= 0)
+            {
+                GameManager.I.HP.i = 0;
+                EventManager.I.PlayerDieEvent.Invoke();
+            }
+            else
+            {
+                EventManager.I.PlayerHitEvent.Invoke();
+            }
         }
-        else if (GameManager.I.HP.i <= GameManager.I.LowHP.i)
-        {
+
+        if (GameManager.I.HP.i <= GameManager.I.LowHP.i)
             EventManager.I.PlayerLowHPEvent.Invoke();
-        }
-        else
-        {
-            EventManager.I.PlayerHitEvent.Invoke();
-        }
 
         _playerAnimator.SetTrigger("IsHit");
         _playerRenderer.color = new Color32(200, 100, 100, 255);

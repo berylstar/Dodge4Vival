@@ -8,6 +8,9 @@ public abstract class Monster : MonoBehaviour
     public int HP;
     public float speed;
 
+    [SerializeField] public FloatVariable MonsterDiePositionX;
+    [SerializeField] public FloatVariable MonsterDiePositionY;
+
     protected Rigidbody2D _rb;
     private PolygonCollider2D _col;
     protected SpriteRenderer _sr;
@@ -42,8 +45,7 @@ public abstract class Monster : MonoBehaviour
         }
         else if (collision.CompareTag("Wall"))
         {
-            EventManager.I.MonsterDieEvent.Invoke();
-            Destroy(this.gameObject);
+            Destroy();
         }
     }
 
@@ -59,8 +61,7 @@ public abstract class Monster : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(0.5f);
 
-        EventManager.I.MonsterDieEvent.Invoke();
-        Destroy(this.gameObject);
+        Destroy();
     }
 
     IEnumerator HitCo()
@@ -74,5 +75,13 @@ public abstract class Monster : MonoBehaviour
 
         _isHit = false;
         _sr.color = Color.white;
+    }
+
+    private void Destroy()
+    {
+        MonsterDiePositionX.Set(transform.position.x);
+        MonsterDiePositionY.Set(transform.position.y);
+        EventManager.I.MonsterDieEvent.Invoke();
+        Destroy(this.gameObject);
     }
 }
