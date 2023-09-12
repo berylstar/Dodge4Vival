@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform _weaponTransform;
 
     [Header("Bullet")]
-    public GameObject bullet;
+    [SerializeField] private GameObject _bullet;
     [SerializeField] private Transform _bulletSpawnPoint;
 
     [Header("Variable")]
@@ -129,7 +129,7 @@ public class Player : MonoBehaviour
     {
         if (value.isPressed && _canAttack)
         {
-            Instantiate(bullet, _bulletSpawnPoint.position, Quaternion.Euler(0, 0, _rotZ - 90));
+            Instantiate(_bullet, _bulletSpawnPoint.position, Quaternion.Euler(0, 0, _rotZ - 90));
             StartCoroutine(AttackCoolTimeCo());
         }
     }
@@ -202,5 +202,10 @@ public class Player : MonoBehaviour
         yield return new WaitForSecondsRealtime(InvincibleTime.f);
 
         _invincible = false;
+    }
+
+    public void SetBullet(GameObject bullet)
+    {
+        _bullet = bullet;
     }
 }

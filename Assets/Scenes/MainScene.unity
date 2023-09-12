@@ -110368,6 +110368,9 @@ GameObject:
   - component: {fileID: 8248098938369912173}
   - component: {fileID: 8248098938369912175}
   - component: {fileID: 8248098938369912174}
+  - component: {fileID: 8248098938369912178}
+  - component: {fileID: 8248098938369912177}
+  - component: {fileID: 8248098938369912176}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -110831,7 +110834,7 @@ MonoBehaviour:
   _playerRigidbody: {fileID: 6559182974931876229}
   _weaponRenderer: {fileID: 7338015801247055424}
   _weaponTransform: {fileID: 6547782260950291075}
-  bullet: {fileID: 8825997391921964759, guid: 8d69403424818874d9a824bae97e4056, type: 3}
+  _bullet: {fileID: 8825997391921964759, guid: 8d69403424818874d9a824bae97e4056, type: 3}
   _bulletSpawnPoint: {fileID: 1144868778165021801}
   HP: {fileID: 11400000, guid: 77e8274cd6f4c064dbeb57df4a612b2e, type: 2}
   MaxHP: {fileID: 11400000, guid: 45d1e391a3b2f3d4ca9dc191de90193a, type: 2}
@@ -110955,6 +110958,90 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8248098938369912176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809391260862661382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a80a7bee7a63844b8b5f649557ac6c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: f316ae192be92764889d158d204b3897, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8248098938369912171}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: SetBullet
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8825997391921964759, guid: a9fe0b84a2553844b8e6c952f263cfba, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8248098938369912177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809391260862661382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a80a7bee7a63844b8b5f649557ac6c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 4b8c78c9d65b23c4e919291465c35f6f, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8248098938369912171}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: SetBullet
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8825997391921964759, guid: 11334358cb0061c41b45811def6d0e27, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8248098938369912178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809391260862661382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a80a7bee7a63844b8b5f649557ac6c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 5eff1aa999c9f564aa35b7c65ef97e6b, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8248098938369912171}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: SetBullet
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8825997391921964759, guid: 8d69403424818874d9a824bae97e4056, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
