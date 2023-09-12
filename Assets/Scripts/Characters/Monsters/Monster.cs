@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class Monster : MonoBehaviour
 {
     [Header("Status")]
     public int HP;
     public float speed;
+
+    [Header("Event")]
+    public GameEvent OnMonsterDie;
 
     [SerializeField] protected Rigidbody2D _rb;
     [SerializeField] private PolygonCollider2D _col;
@@ -75,7 +79,7 @@ public abstract class Monster : MonoBehaviour
     {
         MonsterDiePositionX.Set(transform.position.x);
         MonsterDiePositionY.Set(transform.position.y);
-        EventManager.I.MonsterDieEvent.Invoke();
+        OnMonsterDie.Raise();
         Destroy(this.gameObject);
     }
 }

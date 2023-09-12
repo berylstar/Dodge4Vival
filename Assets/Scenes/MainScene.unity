@@ -123,37 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &133165547
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 133165548}
-  m_Layer: 0
-  m_Name: Monsters
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &133165548
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 133165547}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &237373712
 GameObject:
   m_ObjectHideFlags: 0
@@ -100439,13 +100408,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636439419}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1461415942}
-  m_RootOrder: -1
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &636439421
 MonoBehaviour:
@@ -100747,12 +100716,7 @@ MonoBehaviour:
   _bestScoreText: {fileID: 544014757}
   _thisScoreText: {fileID: 1633460419}
   _monsterSpawnController: {fileID: 1151965904}
-  HP: {fileID: 11400000, guid: 77e8274cd6f4c064dbeb57df4a612b2e, type: 2}
-  LowHP: {fileID: 11400000, guid: 042d923245f418042ad6aefff6b743bd, type: 2}
-  PlayerSpeed: {fileID: 11400000, guid: 86ba3d75fc45cf947b64bac722b38988, type: 2}
-  PlayerAttackCooltime: {fileID: 11400000, guid: 04bf88f03a4c5d24ba4d9c62d3e5e379, type: 2}
   GameEndTime: {fileID: 11400000, guid: e25a98f7efb78404ebfd2072fb986d7d, type: 2}
-  MonsterFullCount: {fileID: 11400000, guid: accec5849551611409d4859086ba6b33, type: 2}
 --- !u!114 &809296809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100901,6 +100865,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58228ab99491aea4590f51d900e9acbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: {fileID: 11400000, guid: 77e8274cd6f4c064dbeb57df4a612b2e, type: 2}
+  MaxHP: {fileID: 11400000, guid: 45d1e391a3b2f3d4ca9dc191de90193a, type: 2}
   _image: {fileID: 7712377556418886725, guid: ac18d2ffa79b9384da281d417c9d7041, type: 3}
   hearts: {fileID: 1666684429}
 --- !u!114 &976572369
@@ -101124,8 +101090,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1461415942}
-  m_RootOrder: -1
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1151965904
 MonoBehaviour:
@@ -101705,10 +101671,8 @@ Transform:
   - {fileID: 330737864}
   - {fileID: 1372539547}
   - {fileID: 262370427}
-  - {fileID: 1151965903}
-  - {fileID: 636439420}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1461415943
 MonoBehaviour:
@@ -109977,7 +109941,7 @@ Transform:
   - {fileID: 3683702653221162118}
   - {fileID: 6547782260950291075}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5375061295327912818
 Transform:
@@ -110189,7 +110153,16 @@ MonoBehaviour:
   _weaponTransform: {fileID: 6547782260950291075}
   bullet: {fileID: 8825997391921964759, guid: 8d69403424818874d9a824bae97e4056, type: 3}
   _bulletSpawnPoint: {fileID: 1144868778165021801}
-  onPlayerHit: {fileID: 11400000, guid: a74942a1cfad1cc4b862927f2e8e4077, type: 2}
+  HP: {fileID: 11400000, guid: 77e8274cd6f4c064dbeb57df4a612b2e, type: 2}
+  MaxHP: {fileID: 11400000, guid: 45d1e391a3b2f3d4ca9dc191de90193a, type: 2}
+  LowHP: {fileID: 11400000, guid: 042d923245f418042ad6aefff6b743bd, type: 2}
+  PlayerSpeed: {fileID: 11400000, guid: 86ba3d75fc45cf947b64bac722b38988, type: 2}
+  PlayerAttackCooltime: {fileID: 11400000, guid: 04bf88f03a4c5d24ba4d9c62d3e5e379, type: 2}
+  OnPlayerHit: {fileID: 11400000, guid: a74942a1cfad1cc4b862927f2e8e4077, type: 2}
+  OnPlayerDie: {fileID: 11400000, guid: bb8e1a5b5913a7648aaa4331b295b4ec, type: 2}
+  OnPlayerHeal: {fileID: 11400000, guid: 3d305959802984246bdfac741bff60a7, type: 2}
+  OnPlayerLowHP: {fileID: 11400000, guid: 46c24665e0a0dcf4685ebcd5ec9a501c, type: 2}
+  OnPlayerInvincible: {fileID: 11400000, guid: 6d4b303b6ff2d2a41b3c864094bbd76a, type: 2}
 --- !u!114 &8248098938369912172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110206,10 +110179,10 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 77e8274cd6f4c064dbeb57df4a612b2e, type: 2}
-        m_TargetAssemblyTypeName: IntVariable, Assembly-CSharp
-        m_MethodName: Change
-        m_Mode: 3
+      - m_Target: {fileID: 8248098938369912171}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnHeal
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
