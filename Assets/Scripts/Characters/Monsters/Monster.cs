@@ -43,7 +43,7 @@ public abstract class Monster : MonoBehaviour
         }
         else if (collision.CompareTag("Wall"))
         {
-            Destroy();
+            Destroy(this.gameObject);
         }
     }
 

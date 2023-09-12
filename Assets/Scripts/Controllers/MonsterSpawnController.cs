@@ -46,7 +46,7 @@ public class MonsterSpawnController : MonoBehaviour
     }
 
     #region Set
-    public void SetSpawnPosition(Vector2 spawnPosition)
+    public void SetSpawnPosition(Vector3 spawnPosition)
     {
         _spawnPosition = spawnPosition;
     }
