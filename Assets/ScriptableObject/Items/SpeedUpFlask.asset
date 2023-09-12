@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e6a06dadb13f3c4288bddbe81126063, type: 3}
-  m_Name: HealingItem
+  m_Name: SpeedUpFlask
   m_EditorClassIdentifier: 
-  Name: HealingItem
-  Discription: Add 1 HP
-  Sprite: {fileID: 21300000, guid: a2fa4b64472404945b0bc01745327b61, type: 3}
-  ItemEvent: {fileID: 11400000, guid: 3d305959802984246bdfac741bff60a7, type: 2}
+  Name: SpeedUpFlask
+  Discription: Add Player Speed
+  Sprite: {fileID: 21300000, guid: 0b420a98fec21da47b4388f906be3c5a, type: 3}
+  ItemEvent: {fileID: 11400000, guid: cf8f2f2de6508694588a5a61b1d1cc55, type: 2}
