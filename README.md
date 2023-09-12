@@ -10,9 +10,9 @@ Angel | 2 | 2 | Follower
 Pumpkin | 3 | 2 | Straight
 Doc | 1 | 5 | Straight
 MaskedOrc | 3 | 3 | Straight
-OrcShaman |  | | Follower
-OrcWarrior | | | Straight
-Orge | | | Follower
-Chort | | |
-Wogol | | |
-BigDemon | | |
+OrcShaman | 2 | 4 | Follower
+OrcWarrior | 5 | 2 | Straight
+Orge | 10 | 2 | Follower
+Chort | 4 | 4 | Follower
+Wogol | 5 | 3 | Follower
+BigDemon | 15 | 3 | Follower
