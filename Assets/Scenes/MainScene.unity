@@ -110632,6 +110632,7 @@ GameObject:
   - component: {fileID: 6969002431886278518}
   - component: {fileID: 7862261208300234712}
   - component: {fileID: 8248098938369912171}
+  - component: {fileID: 8248098938369912179}
   - component: {fileID: 8248098938369912172}
   - component: {fileID: 8248098938369912173}
   - component: {fileID: 8248098938369912175}
@@ -111316,6 +111317,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8248098938369912179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809391260862661382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762a2b4940252094e99e8ef5c1caf440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bullet: {fileID: 8825997391921964759, guid: 8d69403424818874d9a824bae97e4056, type: 3}
+  _bulletSpawnPoint: {fileID: 1144868778165021801}
 --- !u!212 &8673634291029609036
 SpriteRenderer:
   m_ObjectHideFlags: 0

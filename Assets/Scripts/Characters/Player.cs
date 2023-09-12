@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     private Coroutine _speedUpCo;
     private Coroutine _rollCo;
     private Vector2 _moveInput;
+    private BulletController _bulletController;
 
     [Header("Player")]
     [SerializeField] private SpriteRenderer _playerRenderer;
@@ -59,6 +60,7 @@ public class Player : MonoBehaviour
         HP.Set(MaxHP.i);
         Speed.Set(StartSpeed.i);
         _mainCam = Camera.main;
+        _bulletController = GetComponent<BulletController>();
     }
 
     private void FixedUpdate()
@@ -131,7 +133,8 @@ public class Player : MonoBehaviour
     {
         if (value.isPressed && _canAttack)
         {
-            Instantiate(_bullet, _bulletSpawnPoint.position, Quaternion.Euler(0, 0, _rotZ - 90));
+            //Instantiate(_bullet, _bulletSpawnPoint.position, Quaternion.Euler(0, 0, _rotZ - 90));
+            _bulletController.CreatTeiredBullet(_rotZ - 90, 2);
             StartCoroutine(AttackCoolTimeCo());
         }
     }
