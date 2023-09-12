@@ -12,11 +12,12 @@ public class Trap : MonoBehaviour
     public TrapType type;
     [SerializeField] private BoxCollider2D _bc;
 
-    public void Effect()
+    public void Effect(Player player)
     {
         switch (type)
         {
             case TrapType.Spike:
+                player.OnPlayerHit.Raise();
                 break;
 
             default:
