@@ -20,13 +20,13 @@ public class HeartUIViewer : MonoBehaviour
         }
     }
 
-    private void AddHeart()
+    public void AddHeart()
     {
         if(hearts.childCount < MaxHP.i)
             Instantiate(_image, hearts);
     }
 
-    private void RemoveHeart()
+    public void RemoveHeart()
     {
         Destroy(hearts.GetChild(0).gameObject);
     }
