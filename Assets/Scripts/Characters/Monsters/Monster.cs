@@ -38,7 +38,7 @@ public abstract class Monster : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
-            HP -= collision.GetComponent<Bullet>().damage;
+            HP -= collision.GetComponent<Bullet>().data.damage;
 
             if (HP <= 0)
                 StartCoroutine(Disappear());
@@ -55,6 +55,7 @@ public abstract class Monster : MonoBehaviour
     {
         _isHit = true;
         _col.enabled = false;
+        _rb.velocity = Vector2.zero;
         _sr.color = new Color32(255, 255, 255, 100);
 
         yield return new WaitForSecondsRealtime(0.5f);
