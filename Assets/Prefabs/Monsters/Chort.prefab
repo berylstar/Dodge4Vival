@@ -202,6 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 2
   speed: 3
+  OnMonsterDie: {fileID: 11400000, guid: c34261c5e568e9e43b072c1967e73b98, type: 2}
   _rb: {fileID: 7417442559796551278}
   _col: {fileID: 4057381350146273639}
   _sr: {fileID: 304398554350753551}

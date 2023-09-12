@@ -18,19 +18,12 @@ public class GameManager : MonoBehaviour
     private float _inTime = 0f;
 
     [Header("Variables")]
-    public IntVariable HP;
-    public IntVariable LowHP;
-    public IntVariable PlayerSpeed;
-    public FloatVariable PlayerAttackCooltime;
-
     public FloatVariable GameEndTime;
-    public IntVariable MonsterFullCount;
 
     void Awake()
     {
         I = this;
 
-        InitialVariables();
         Time.timeScale = 1.0f;
     }
 
@@ -50,13 +43,6 @@ public class GameManager : MonoBehaviour
             _inTime += Time.deltaTime;
             _TimeText.text = _inTime.ToString("N2");
         }
-    }
-
-    private void InitialVariables()
-    {
-        HP.i = 5;
-        PlayerSpeed.i = 5;
-        PlayerAttackCooltime.f = 0.5f;
     }
 
     public void GameOver()
