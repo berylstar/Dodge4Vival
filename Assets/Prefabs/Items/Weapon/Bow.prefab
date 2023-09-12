@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9042286400422979707}
   - component: {fileID: 5434103483458189773}
   m_Layer: 0
-  m_Name: SpeedUpFlask
+  m_Name: Bow
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &671670903710042881
 SpriteRenderer:
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 0b420a98fec21da47b4388f906be3c5a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bbcb4638c11add94a94c6aff5d81ce42, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,7 +122,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.875, y: 1.625}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -130,12 +130,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.40625, y: 0.375}
-      - {x: -0.41604233, y: 0.002300024}
+    - - {x: -0.23412228, y: 0.25538564}
+      - {x: -0.13305235, y: 0.057730913}
       - {x: -0.042006493, y: -0.39132047}
       - {x: 0.04853487, y: -0.39132047}
-      - {x: 0.41604233, y: 0.0055639744}
-      - {x: 0.40625, y: 0.38479257}
+      - {x: 0.1768136, y: 0.01431632}
+      - {x: 0.22536993, y: 0.2564261}
   m_UseDelaunayMesh: 0
 --- !u!114 &5434103483458189773
 MonoBehaviour:
@@ -149,4 +149,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c390fec3e5731469332648387d2383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameEvent: {fileID: 11400000, guid: cf8f2f2de6508694588a5a61b1d1cc55, type: 2}
+  _gameEvent: {fileID: 11400000, guid: 5eff1aa999c9f564aa35b7c65ef97e6b, type: 2}

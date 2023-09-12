@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5434103483458189773}
   m_Layer: 0
   m_Name: InvincibleFlask
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: a371cb1d6abf13b4e9a4d7a533121629, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 53e0425deea8aab4e92f51e700ddaa7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
