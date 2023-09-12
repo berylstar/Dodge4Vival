@@ -25,8 +25,8 @@ public class MonsterSpawnController : MonoBehaviour
             _spawnPosition = _player.transform.position;
             if (transform.childCount < fullCount)
             {
-                float x = Random.Range(-8.0f, 8.0f);
-                float y = Random.Range(-5.0f, 5.0f);
+                float x = RandomPositionValue();
+                float y = RandomPositionValue();
                 _spawnPosition.x += x;
                 _spawnPosition.y += y;
                 Instantiate(_monsters[0], _spawnPosition, Quaternion.identity, transform);
@@ -43,6 +43,16 @@ public class MonsterSpawnController : MonoBehaviour
             if(child.CompareTag(_monsters[0].tag))
                 Destroy(child.gameObject);
         }
+    }
+
+    private float RandomPositionValue()
+    {
+        float value = Random.Range(-8.0f, 8.0f);
+        if (value <= 0 && -2f < value)
+            value = -3f;
+        if (value > 0 && 2f > value)
+            value = 3f;
+        return value;
     }
 
     #region Set
