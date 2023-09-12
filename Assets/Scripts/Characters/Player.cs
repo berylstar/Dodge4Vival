@@ -30,10 +30,24 @@ public class Player : MonoBehaviour
     public GameObject bullet;
     [SerializeField] private Transform _bulletSpawnPoint;
 
+    [Header("Variable")]
+    public IntVariable HP;
+    public IntVariable MaxHP;
+    public IntVariable LowHP;
+    public IntVariable PlayerSpeed;
+    public FloatVariable PlayerAttackCooltime;
+
+    [Header("Event")]
+    public GameEvent OnPlayerHit;
+    public GameEvent OnPlayerDie;
+    public GameEvent OnPlayerHeal;
+    public GameEvent OnPlayerLowHP;
+    public GameEvent OnPlayerInvincible;
+
     private void Awake()
     {
         I = this;
-
+        HP.Set(MaxHP.i);
         _mainCam = Camera.main;
     }
 
@@ -42,30 +56,34 @@ public class Player : MonoBehaviour
         _mainCam.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Monster") && !_invincible)
         {
             StartCoroutine(HitCo());
         }
+        else if (collision.CompareTag("Trap"))
+        {
+            collision.GetComponent<Trap>().Effect();
+        }
     }
 
     private IEnumerator HitCo()
     {
-        GameManager.I.HP.i -= 1;
+        HP.i -= 1;
 
-        if (GameManager.I.HP.i <= 0)
+        if (HP.i <= 0)
         {
-            GameManager.I.HP.i = 0;
-            EventManager.I.PlayerDieEvent.Invoke();
+            HP.i = 0;
+            OnPlayerDie.Raise();
         }
         else
         {
-            EventManager.I.PlayerHitEvent.Invoke();
+            OnPlayerHit.Raise();
         }
 
-        if (GameManager.I.HP.i <= GameManager.I.LowHP.i)
-            EventManager.I.PlayerLowHPEvent.Invoke();
+        if (HP.i <= LowHP.i)
+            OnPlayerLowHP.Raise();
 
         _playerAnimator.SetTrigger("IsHit");
         _playerRenderer.color = new Color32(200, 100, 100, 255);
@@ -80,7 +98,7 @@ public class Player : MonoBehaviour
         Vector2 moveInput = value.Get<Vector2>().normalized;
 
         _playerAnimator.SetBool("IsMoving", (moveInput.magnitude != 0));
-        _playerRigidbody.velocity = moveInput * GameManager.I.PlayerSpeed.i;
+        _playerRigidbody.velocity = moveInput * PlayerSpeed.i;
     }
 
     public void OnLook(InputValue value)
@@ -110,7 +128,7 @@ public class Player : MonoBehaviour
     {
         _canAttack = false;
 
-        yield return new WaitForSecondsRealtime(GameManager.I.PlayerAttackCooltime.f);
+        yield return new WaitForSecondsRealtime(PlayerAttackCooltime.f);
 
         _canAttack = true;
     }
@@ -134,7 +152,13 @@ public class Player : MonoBehaviour
         if (value.isPressed)
         {
             //Debug.Log("SKILL");
-            EventManager.I.PlayerHealingEvent.Invoke();
+            OnPlayerHeal.Raise();
         }
+    }
+
+    public void OnHeal()
+    {
+        if (HP.i <= MaxHP.i)
+            HP.Change(1);
     }
 }

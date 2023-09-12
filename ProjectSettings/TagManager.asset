@@ -7,6 +7,7 @@ TagManager:
   - Monster
   - Bullet
   - Wall
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -43,6 +44,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Trap
+    uniqueID: 1708141191
     locked: 0
   - name: Character
     uniqueID: 2208900575
