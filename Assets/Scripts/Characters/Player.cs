@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     private float _rotZ = 0f;
     private Coroutine _invincibleCo;
     private Coroutine _speedUpCo;
+    private Coroutine _rollCo;
+    private Vector2 _moveInput;
 
     [Header("Player")]
     [SerializeField] private SpriteRenderer _playerRenderer;
@@ -49,6 +51,7 @@ public class Player : MonoBehaviour
     public GameEvent EventPlayerLowHP;
     public GameEvent EventPlayerSpeedUp;
     public GameEvent EventPlayerInvincible;
+    public GameEvent EventPlayerRoll;
 
     private void Awake()
     {
@@ -79,7 +82,7 @@ public class Player : MonoBehaviour
             {
                 EventPlayerLowHP.Raise();
             }
-                
+
         }
         else if (collision.CompareTag("Trap"))
         {
@@ -104,10 +107,10 @@ public class Player : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
-        Vector2 moveInput = value.Get<Vector2>().normalized;
+        _moveInput = value.Get<Vector2>().normalized;
 
-        _playerAnimator.SetBool("IsMoving", (moveInput.magnitude != 0));
-        _playerRigidbody.velocity = moveInput * Speed.i;
+        _playerAnimator.SetBool("IsMoving", (_moveInput.magnitude != 0));
+        _playerRigidbody.velocity = _moveInput * Speed.i;
     }
 
     public void OnLook(InputValue value)
@@ -163,6 +166,27 @@ public class Player : MonoBehaviour
             //Debug.Log("SKILL");
             EventPlayerHeal.Raise();
         }
+    }
+
+    public void OnRoll(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            _playerAnimator.SetTrigger("IsRoll");
+            EventPlayerRoll.Raise();
+            _invincible = true;
+            if (_rollCo != null)
+                StopCoroutine(_rollCo);
+            _rollCo = StartCoroutine(RollCo());
+        }
+    }
+
+    private IEnumerator RollCo()
+    {
+        _playerRigidbody.velocity = _moveInput * Speed.i * 2;
+        yield return new WaitForSecondsRealtime(0.3f);
+        _invincible = false;
+        _playerRigidbody.velocity = _moveInput * Speed.i;
     }
 
     public void OnHeal()
