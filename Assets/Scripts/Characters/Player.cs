@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
     public GameObject bullet;
     [SerializeField] private Transform _bulletSpawnPoint;
 
+    public GameEvent onPlayerHit;
+
     private void Awake()
     {
         I = this;
@@ -39,7 +41,6 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // ī�޶� �÷��̾ ���� �̵�
         _mainCam.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }
 
@@ -54,25 +55,20 @@ public class Player : MonoBehaviour
     private IEnumerator HitCo()
     {
         GameManager.I.HP.i -= 1;
-        EventManager.I.PlayerHitEvent.Invoke();
-        if (!_invincible)
-        {
-            GameManager.I.HP.i -= 1;
 
-            if (GameManager.I.HP.i <= 0)
-            {
-                GameManager.I.HP.i = 0;
-                EventManager.I.PlayerDieEvent.Invoke();
-            }
-            else
-            {
-                EventManager.I.PlayerHitEvent.Invoke();
-            }
+        if (GameManager.I.HP.i <= 0)
+        {
+            GameManager.I.HP.i = 0;
+            EventManager.I.PlayerDieEvent.Invoke();
+        }
+        else
+        {
+            //EventManager.I.PlayerHitEvent.Invoke();
+            onPlayerHit.Raise();
         }
 
         if (GameManager.I.HP.i <= GameManager.I.LowHP.i)
             EventManager.I.PlayerLowHPEvent.Invoke();
-        }
 
         _playerAnimator.SetTrigger("IsHit");
         _playerRenderer.color = new Color32(200, 100, 100, 255);

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class HeartUIViewer : MonoBehaviour
 {
@@ -14,11 +15,6 @@ public class HeartUIViewer : MonoBehaviour
         {
             AddHeart();
         }
-
-        EventManager.I.PlayerHitEvent.AddListener(RemoveHeart);
-
-        EventManager.I.PlayerHealingEvent.AddListener(AddHeart);
-        EventManager.I.PlayerHealingEvent.AddListener(Heal);
     }
 
     private void AddHeart()

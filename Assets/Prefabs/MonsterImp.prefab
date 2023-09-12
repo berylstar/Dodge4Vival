@@ -202,5 +202,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 2
   speed: 3
+  _rb: {fileID: 7417442559796551278}
+  _col: {fileID: 4057381350146273639}
+  _sr: {fileID: 304398554350753551}
+  _ani: {fileID: 8896677876247758122}
   MonsterDiePositionX: {fileID: 11400000, guid: b70c64429a4290c4091696b5089312fe, type: 2}
   MonsterDiePositionY: {fileID: 11400000, guid: ec6fd6cf10e959947970865fca31b120, type: 2}
