@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ItemDropController : MonoBehaviour
 {
-    [SerializeField] private ItemData[] _items;
+    [SerializeField] private GameObject[] _items;
     [SerializeField] private GameObject _item;
 
     [SerializeField] public FloatVariable MonsterDiePositionX;
@@ -15,10 +15,8 @@ public class ItemDropController : MonoBehaviour
         int index = GetRandomIndex();
         if(index >= 0)
         {
-            _item.GetComponent<SpriteRenderer>().sprite = _items[index].Sprite;
-            _item.GetComponent<Item>().SetItemData(_items[index]);
             _newPosition = new Vector2(MonsterDiePositionX.f, MonsterDiePositionY.f);
-            Instantiate(_item, _newPosition, Quaternion.identity, transform);
+            Instantiate(_items[index], _newPosition, Quaternion.identity, transform);
         }
     }
 

@@ -100429,9 +100429,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _items:
-  - {fileID: 11400000, guid: 7d85751433c6e314f8ae099b699b10f0, type: 2}
-  - {fileID: 11400000, guid: 71bf32fa14c5ab94a8ddd8971ca91c88, type: 2}
-  - {fileID: 11400000, guid: 2557b342950345a4086ead4ed045e3df, type: 2}
+  - {fileID: 4006944593985222901, guid: ac5f1e57bbb8b0a4d9ca5bb4a77a331b, type: 3}
+  - {fileID: 4006944593985222901, guid: 4b0261216c79bbf45bbe440e5c0494f5, type: 3}
+  - {fileID: 4006944593985222901, guid: 74f1bb89c2d51d042ab7eed7cd4cc96b, type: 3}
   _item: {fileID: 4006944593985222901, guid: ac5f1e57bbb8b0a4d9ca5bb4a77a331b, type: 3}
   MonsterDiePositionX: {fileID: 11400000, guid: b70c64429a4290c4091696b5089312fe, type: 2}
   MonsterDiePositionY: {fileID: 11400000, guid: ec6fd6cf10e959947970865fca31b120, type: 2}
