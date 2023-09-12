@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Roll",
+                    "type": "Value",
+                    "id": "75409096-5d46-46ff-b04f-c4d2a0ba9b53",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -148,6 +157,17 @@
                     "processors": "",
                     "groups": "PC",
                     "action": "Skill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "037b988c-cf60-453f-8045-09842b42f21d",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Roll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
