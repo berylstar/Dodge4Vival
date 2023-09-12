@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3739361329516041230}
   - component: {fileID: 671670903710042881}
   - component: {fileID: 9042286400422979707}
-  - component: {fileID: -5426959834458141013}
+  - component: {fileID: 5434103483458189773}
   m_Layer: 0
-  m_Name: Item
+  m_Name: InvincibleFlask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 0fbbd3668a07bcd41aa26c9b26372bac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a371cb1d6abf13b4e9a4d7a533121629, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,7 +137,7 @@ PolygonCollider2D:
       - {x: 0.41604233, y: 0.0055639744}
       - {x: 0.40625, y: 0.38479257}
   m_UseDelaunayMesh: 0
---- !u!114 &-5426959834458141013
+--- !u!114 &5434103483458189773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,4 +149,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c390fec3e5731469332648387d2383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _item: {fileID: 11400000, guid: 2557b342950345a4086ead4ed045e3df, type: 2}
+  _gameEvent: {fileID: 11400000, guid: 6d4b303b6ff2d2a41b3c864094bbd76a, type: 2}
