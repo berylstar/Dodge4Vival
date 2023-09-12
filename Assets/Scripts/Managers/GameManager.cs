@@ -93,8 +93,6 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log(_inTime);
-
             Instantiate(spawnableMonsters[Random.Range(0, spawnableMonsters.Count)], RandomSpawnPosition(), Quaternion.identity, spawnHolder);
 
             yield return new WaitForSeconds(spawnCooldownTime);
