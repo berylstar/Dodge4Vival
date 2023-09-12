@@ -68,19 +68,15 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("Monster") && !_invincible)
         {
             HP.Change(-1);
+            EventPlayerHit.Raise();
+            if (HP.i <= LowHP.i)
+                EventPlayerLowHP.Raise();
 
             if (HP.i <= 0)
             {
                 HP.i = 0;
                 EventPlayerDie.Raise();
             }
-            else
-            {
-                EventPlayerHit.Raise();
-            }
-
-            if (HP.i <= LowHP.i)
-                EventPlayerLowHP.Raise();
         }
         else if (collision.CompareTag("Trap"))
         {
