@@ -100491,6 +100491,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _items:
   - {fileID: 11400000, guid: 7d85751433c6e314f8ae099b699b10f0, type: 2}
+  - {fileID: 11400000, guid: 71bf32fa14c5ab94a8ddd8971ca91c88, type: 2}
+  - {fileID: 11400000, guid: 2557b342950345a4086ead4ed045e3df, type: 2}
   _item: {fileID: 4006944593985222901, guid: ac5f1e57bbb8b0a4d9ca5bb4a77a331b, type: 3}
   MonsterDiePositionX: {fileID: 11400000, guid: b70c64429a4290c4091696b5089312fe, type: 2}
   MonsterDiePositionY: {fileID: 11400000, guid: ec6fd6cf10e959947970865fca31b120, type: 2}
@@ -101121,6 +101123,163 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982974929}
   m_CullTransparentMesh: 1
+--- !u!1 &1043688721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1043688722}
+  - component: {fileID: 1043688724}
+  - component: {fileID: 1043688723}
+  m_Layer: 0
+  m_Name: InvincibleEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1043688722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043688721}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1461415942}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1043688723
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043688721}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b41b1637a28574c4897cc00cadd39efc, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1043688724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043688721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a80a7bee7a63844b8b5f649557ac6c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 6d4b303b6ff2d2a41b3c864094bbd76a, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1043688723}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1151965902
 GameObject:
   m_ObjectHideFlags: 0
@@ -101733,6 +101892,7 @@ Transform:
   - {fileID: 330737864}
   - {fileID: 1372539547}
   - {fileID: 262370427}
+  - {fileID: 1043688722}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -109850,6 +110010,8 @@ GameObject:
   - component: {fileID: 8248098938369912171}
   - component: {fileID: 8248098938369912172}
   - component: {fileID: 8248098938369912173}
+  - component: {fileID: 8248098938369912175}
+  - component: {fileID: 8248098938369912174}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -110102,12 +110264,17 @@ MonoBehaviour:
   HP: {fileID: 11400000, guid: 77e8274cd6f4c064dbeb57df4a612b2e, type: 2}
   MaxHP: {fileID: 11400000, guid: 45d1e391a3b2f3d4ca9dc191de90193a, type: 2}
   LowHP: {fileID: 11400000, guid: 042d923245f418042ad6aefff6b743bd, type: 2}
-  PlayerSpeed: {fileID: 11400000, guid: 86ba3d75fc45cf947b64bac722b38988, type: 2}
+  Speed: {fileID: 11400000, guid: 86ba3d75fc45cf947b64bac722b38988, type: 2}
+  StartSpeed: {fileID: 11400000, guid: 639d154f1b1b0cd44b858d90f3c8ed76, type: 2}
+  SpeedUpAmount: {fileID: 11400000, guid: e014bfe0258af834391b3b116c39f094, type: 2}
   PlayerAttackCooltime: {fileID: 11400000, guid: 04bf88f03a4c5d24ba4d9c62d3e5e379, type: 2}
+  InvincibleTime: {fileID: 11400000, guid: 0facb3fca01610b498a37df7b5f4fc69, type: 2}
+  SpeedUpTime: {fileID: 11400000, guid: f2f8843807b852246be15287062e7618, type: 2}
   EventPlayerHit: {fileID: 11400000, guid: a74942a1cfad1cc4b862927f2e8e4077, type: 2}
   EventPlayerDie: {fileID: 11400000, guid: bb8e1a5b5913a7648aaa4331b295b4ec, type: 2}
   EventPlayerHeal: {fileID: 11400000, guid: 3d305959802984246bdfac741bff60a7, type: 2}
   EventPlayerLowHP: {fileID: 11400000, guid: 46c24665e0a0dcf4685ebcd5ec9a501c, type: 2}
+  EventPlayerSpeedUp: {fileID: 11400000, guid: cf8f2f2de6508694588a5a61b1d1cc55, type: 2}
   EventPlayerInvincible: {fileID: 11400000, guid: 6d4b303b6ff2d2a41b3c864094bbd76a, type: 2}
 --- !u!114 &8248098938369912172
 MonoBehaviour:
@@ -110156,6 +110323,62 @@ MonoBehaviour:
       - m_Target: {fileID: 8248098938369912171}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: OnHitAnimator
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8248098938369912174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809391260862661382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a80a7bee7a63844b8b5f649557ac6c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 6d4b303b6ff2d2a41b3c864094bbd76a, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8248098938369912171}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnInvincible
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8248098938369912175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809391260862661382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a80a7bee7a63844b8b5f649557ac6c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: cf8f2f2de6508694588a5a61b1d1cc55, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8248098938369912171}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnSpeedUP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
