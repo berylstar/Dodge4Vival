@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,7 +27,8 @@ public class GameManager : MonoBehaviour
     public List<GameObject> monsters3 = new List<GameObject>();
     public List<GameObject> monsters4 = new List<GameObject>();
 
-    [SerializeField] private List<GameObject> spawnableMonsters = new List<GameObject>();
+    private UnityEvent _spawnEvent = new();
+    private int spawnCounter = 0;
 
     [Header("Variables")]
     public FloatVariable GameEndTime;
@@ -39,12 +41,9 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 1.0f;
 
-        foreach (GameObject mon in monsters1)
-        {
-            spawnableMonsters.Add(mon);
-        }
-
         StartCoroutine(Spawn(SpawnCooldownTime.f));
+
+        _spawnEvent.AddListener(AddMonster1);
     }
 
     void Update()
@@ -73,29 +72,85 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("StartScene");
     }
 
-    private Vector2 RandomSpawnPosition()
+    private void AddMonster1() => Instantiate(monsters1[Random.Range(0, monsters1.Count)], RandomSpawnPosition(), Quaternion.identity, spawnHolder);
+    private void AddMonster2() => Instantiate(monsters2[Random.Range(0, monsters2.Count)], RandomSpawnPosition(), Quaternion.identity, spawnHolder);
+    private void AddMonster3() => Instantiate(monsters3[Random.Range(0, monsters3.Count - 1)], RandomSpawnPosition(), Quaternion.identity, spawnHolder);
+    private void AddMonster3B() => Instantiate(monsters3[monsters3.Count - 1], RandomSpawnPosition(), Quaternion.identity, spawnHolder);
+    private void AddMonster4() => Instantiate(monsters4[Random.Range(0, monsters4.Count - 1)], RandomSpawnPosition(), Quaternion.identity, spawnHolder);
+    private void AddMonster4B() => Instantiate(monsters4[monsters4.Count - 1], RandomSpawnPosition(), Quaternion.identity, spawnHolder);
+
+    private void ApplySpawnLevel()
     {
-        float x = player.transform.position.x + Random.Range(-8.0f, 8.0f);
-        float y = player.transform.position.y + Random.Range(-5.0f, 5.0f);
+        spawnCounter += 1;
 
-        x = Mathf.Max(Mathf.Min(x, 54), -54);
-        y = Mathf.Max(Mathf.Min(y, 43), -43);
+        switch (spawnCounter)
+        {
+            case 30:
+            case 90:
+            case 180:
+            case 390:
+                _spawnEvent.AddListener(AddMonster1);
+                break;
 
-        return new Vector2(x, y);
+            case 60:
+            case 150:
+            case 330:
+                _spawnEvent.AddListener(AddMonster2);
+                break;
+
+            case 120:
+            case 240:
+            case 450:
+                _spawnEvent.AddListener(AddMonster3);
+                break;
+
+            case 210:
+            case 360:
+                AddMonster3B();
+                break;
+
+            case 300:
+            case 420:
+                _spawnEvent.AddListener(AddMonster4);
+                break;
+
+            case 480:
+                AddMonster4B();
+                break;
+
+            default:
+                if (spawnCounter > 480)
+                {
+                    if (spawnCounter % 200 == 0) AddMonster4B();
+                    else if (spawnCounter % 100 == 0) AddMonster3B();
+                }
+                break;
+        }
     }
 
-    private void AddMonster()
+    private Vector2 RandomSpawnPosition()
     {
+        //Vector2 RandomVector = Random.insideUnitCircle * Random.Range(4f, 7f);
 
+        //float x = (RandomVector.x - player.transform.position.x);
+        //float y = (RandomVector.y - player.transform.position.y);
+
+        Vector2 RandomVector = (Vector2)player.transform.position + Random.insideUnitCircle.normalized * 6;
+        
+
+        float x = Mathf.Max(Mathf.Min(RandomVector.x, 54), -54);
+        float y = Mathf.Max(Mathf.Min(RandomVector.y, 43), -43);
+
+        return new Vector2(x, y);
     }
 
     private IEnumerator Spawn(float spawnCooldownTime)
     {
         while (true)
         {
-            Debug.Log(_inTime);
+            ApplySpawnLevel();
 
-            Instantiate(spawnableMonsters[Random.Range(0, spawnableMonsters.Count)], RandomSpawnPosition(), Quaternion.identity, spawnHolder);
+            _spawnEvent.Invoke();
 
             yield return new WaitForSeconds(spawnCooldownTime);
         }        

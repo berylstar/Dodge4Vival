@@ -69,14 +69,17 @@ public class Player : MonoBehaviour
         {
             HP.Change(-1);
             EventPlayerHit.Raise();
-            if (HP.i <= LowHP.i)
-                EventPlayerLowHP.Raise();
 
             if (HP.i <= 0)
             {
                 HP.i = 0;
                 EventPlayerDie.Raise();
             }
+            else if (HP.i <= LowHP.i)
+            {
+                EventPlayerLowHP.Raise();
+            }
+                
         }
         else if (collision.CompareTag("Trap"))
         {
