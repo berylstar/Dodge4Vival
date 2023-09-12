@@ -5,8 +5,14 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [Header("Status")]
-    public int damage;
-    public float speed;
+    public BulletData data;
+
+    private int remains;
+
+    private void Awake()
+    {
+        remains = data.remains;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,6 +25,6 @@ public class Bullet : MonoBehaviour
     // 발사체는 일직선으로 발사
     private void FixedUpdate()
     {
-        transform.Translate(speed * Time.deltaTime * Vector2.up);
+        transform.Translate(data.speed * Time.deltaTime * Vector2.up);
     }
 }
