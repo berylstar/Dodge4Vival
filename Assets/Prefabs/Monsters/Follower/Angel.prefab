@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4057381350146273639}
   - component: {fileID: 851666249023302124}
   m_Layer: 0
-  m_Name: Chort
+  m_Name: Angel
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7687346059037502737}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.4, y: 3.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -2086066721
   m_SortingLayer: 2
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 000b28f6f72cbfe47a2e189752b02f04, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 360fb4f44816b274980d1e6c9f54eb7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 7687346059037502737}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: a361adba82c34df47a640cd59e3ccdff, type: 2}
+  m_Controller: {fileID: 22100000, guid: d2fff2505ae68ce44a2c395cec69e304, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -180,13 +180,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.012934208, y: 0.13830185}
-      - {x: -0.1776731, y: -0.020112962}
-      - {x: -0.17908919, y: -0.42399397}
-      - {x: 0.2033546, y: -0.4315469}
-      - {x: 0.24555135, y: -0.36272687}
-      - {x: 0.25593615, y: -0.073831946}
-      - {x: 0.32306576, y: 0.07646537}
+    - - {x: -0.021605015, y: 0.07476497}
+      - {x: -0.11353016, y: 0.06990647}
+      - {x: -0.12096763, y: 0.007284194}
+      - {x: -0.12571526, y: -0.13453245}
+      - {x: -0.118270874, y: -0.18773961}
+      - {x: -0.10987532, y: -0.38394487}
+      - {x: 0.29858756, y: -0.41244578}
+      - {x: 0.31231236, y: -0.31376857}
+      - {x: 0.3045125, y: -0.084652334}
+      - {x: 0.31055737, y: 0.075398445}
   m_UseDelaunayMesh: 0
 --- !u!114 &851666249023302124
 MonoBehaviour:
@@ -200,8 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26161681667c89a4eae263f206ad6317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 4
-  speed: 1
+  HP: 1
+  speed: 2
   EventMonsterDie: {fileID: 11400000, guid: c34261c5e568e9e43b072c1967e73b98, type: 2}
   _rb: {fileID: 7417442559796551278}
   _col: {fileID: 4057381350146273639}

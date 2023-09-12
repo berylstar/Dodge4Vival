@@ -6,8 +6,9 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager I;
-    
-    [SerializeField] private GameObject _player;
+
+    public Player player;
+
     [SerializeField] private GameObject _endPanel;
     [SerializeField] private TMP_Text _TimeText;
     [SerializeField] private TMP_Text _bestScoreText;
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        _monsterSpawnController.SetSpawnPosition(new Vector2(_player.transform.position.x, _player.transform.position.y));
+        _monsterSpawnController.SetSpawnPosition(player.transform.position);
     }
 
     void Update()
