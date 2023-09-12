@@ -23,25 +23,24 @@ public class ItemDropController : MonoBehaviour
     {
         int index = -1;
         int percentNum = Random.Range(0, 100);
-        if (percentNum < 55)
-        {
-            if (percentNum < 10)
-                index = 0;
-            else if (percentNum < 20)
-                index = 1;
-            else if (percentNum < 25)
-                index = 2;
-            else if(percentNum < 35)
-                index = 3;
-            else if (percentNum < 45)
-                index = 4;
-            else if (percentNum < 55)
-                index = 5;
+        if (percentNum < 5)
+            index = 0;
+        else if (percentNum < 35)
+            index = 1;
+        else if (percentNum < 40)
+            index = 2;
+        else if (percentNum < 45)
+            index = 3;
+        else if (percentNum < 50)
+            index = 4;
+        else if (percentNum < 55)
+            index = 5;
+        else if (percentNum < 60)
+            index = 6;
 
+        if (index >= _items.Length)
+            index = 1;
 
-            if (index >= _items.Length)
-                index = 0;
-        }
         return index;
     }
 }
