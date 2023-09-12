@@ -154,7 +154,7 @@ public class Player : MonoBehaviour
 
     public void OnHeal()
     {
-        if (HP.i <= MaxHP.i)
+        if (HP.i < MaxHP.i)
             HP.Change(1);
     }
 }

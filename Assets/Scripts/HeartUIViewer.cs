@@ -16,16 +16,14 @@ public class HeartUIViewer : MonoBehaviour
     {
         for (int i = 0; i < HP.i; i++)
         {
-            AddHeart();
+            Instantiate(_image, hearts);
         }
     }
 
     private void AddHeart()
     {
-        if(HP.i <= MaxHP.i)
-        {
+        if(hearts.childCount < MaxHP.i)
             Instantiate(_image, hearts);
-        }
     }
 
     private void RemoveHeart()
