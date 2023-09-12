@@ -167,7 +167,7 @@ Transform:
   - {fileID: 457984846}
   - {fileID: 1488468565}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &262370423
 GameObject:
@@ -100414,7 +100414,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &636439421
 MonoBehaviour:
@@ -100533,7 +100533,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &721732138
 GameObject:
@@ -100681,6 +100681,7 @@ GameObject:
   - component: {fileID: 809296806}
   - component: {fileID: 809296807}
   - component: {fileID: 809296809}
+  - component: {fileID: 809296810}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -100720,7 +100721,27 @@ MonoBehaviour:
   _TimeText: {fileID: 721732140}
   _bestScoreText: {fileID: 544014757}
   _thisScoreText: {fileID: 1633460419}
-  _monsterSpawnController: {fileID: 1151965904}
+  MonsterFullCount: {fileID: 11400000, guid: accec5849551611409d4859086ba6b33, type: 2}
+  SpawnCooldownTime: {fileID: 11400000, guid: c55b6403e96a1824ba0e6c8098a342df, type: 2}
+  spawnHolder: {fileID: 1286398231}
+  monsters1:
+  - {fileID: 7687346059037502737, guid: 31fe0464541eca043a76116ce4b6f2fa, type: 3}
+  - {fileID: 7687346059037502737, guid: bd3f4124759e4a146a79f5fe157c23e6, type: 3}
+  - {fileID: 7687346059037502737, guid: f8596ad9a0ad48b499b1bc1cf82db796, type: 3}
+  monsters2:
+  - {fileID: 7687346059037502737, guid: 3230cf7475928fc4e9c88dae295917b5, type: 3}
+  - {fileID: 7687346059037502737, guid: 961e24dd340fc184b843560d75376903, type: 3}
+  - {fileID: 7687346059037502737, guid: 59473e3a9cbf9314e8098d43835a2c17, type: 3}
+  monsters3:
+  - {fileID: 7687346059037502737, guid: 4eb4c63e9def84648bbce0ce0f357c99, type: 3}
+  - {fileID: 7687346059037502737, guid: 2d069d343cc0982499051e24d795c8ad, type: 3}
+  - {fileID: 7687346059037502737, guid: 382ceced7fde8e74d9f7e138a7fc5bda, type: 3}
+  - {fileID: 7687346059037502737, guid: 1191bb0254b89d74b886b292f9177d98, type: 3}
+  monsters4:
+  - {fileID: 7687346059037502737, guid: 9bffaee87b94b0c40a407277fb719c49, type: 3}
+  - {fileID: 7687346059037502737, guid: a2a122ff92247fa41b175d37ba3e594a, type: 3}
+  - {fileID: 7687346059037502737, guid: f13569274973b534b850c8f017765a8f, type: 3}
+  spawnableMonsters: []
   GameEndTime: {fileID: 11400000, guid: e25a98f7efb78404ebfd2072fb986d7d, type: 2}
 --- !u!114 &809296809
 MonoBehaviour:
@@ -100741,6 +100762,34 @@ MonoBehaviour:
       - m_Target: {fileID: 809296807}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: GameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &809296810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809296805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a80a7bee7a63844b8b5f649557ac6c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 4af858d8c1d8e65458039318ec38f43c, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 809296807}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnDestroyAllMonster
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -100851,7 +100900,7 @@ RectTransform:
   - {fileID: 982974930}
   - {fileID: 1666684429}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -101474,7 +101523,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1151965902
+--- !u!1 &1286398230
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101482,76 +101531,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1151965903}
-  - component: {fileID: 1151965904}
-  - component: {fileID: 1151965905}
+  - component: {fileID: 1286398231}
   m_Layer: 0
-  m_Name: MonsterSpawn
+  m_Name: MonsterHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1151965903
+--- !u!4 &1286398231
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151965902}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 1286398230}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1151965904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151965902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3879d634e31e0194894cb31bd09325ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MonsterFullCount: {fileID: 11400000, guid: accec5849551611409d4859086ba6b33, type: 2}
-  SpawnCooldownTime: {fileID: 11400000, guid: c55b6403e96a1824ba0e6c8098a342df, type: 2}
-  _monsters:
-  - {fileID: 7687346059037502737, guid: 1191bb0254b89d74b886b292f9177d98, type: 3}
-  _player: {fileID: 2809391260862661382}
---- !u!114 &1151965905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151965902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a80a7bee7a63844b8b5f649557ac6c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 4af858d8c1d8e65458039318ec38f43c, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1151965904}
-        m_TargetAssemblyTypeName: MonsterSpawnController, Assembly-CSharp
-        m_MethodName: DestroyAllMonster
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1292343818
 GameObject:
   m_ObjectHideFlags: 0
@@ -101832,7 +101834,7 @@ GameObject:
   - component: {fileID: 1372539545}
   - component: {fileID: 1372539546}
   m_Layer: 0
-  m_Name: DamageEffect
+  m_Name: HitEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102244,7 +102246,7 @@ Transform:
   - {fileID: 1043688722}
   - {fileID: 1373382569}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1488468564
 GameObject:
@@ -110403,7 +110405,7 @@ Transform:
   - {fileID: 3683702653221162118}
   - {fileID: 6547782260950291075}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5375061295327912818
 Transform:
