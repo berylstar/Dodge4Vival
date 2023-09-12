@@ -17,7 +17,7 @@ public class Trap : MonoBehaviour
         switch (type)
         {
             case TrapType.Spike:
-                player.OnPlayerHit.Raise();
+                player.EventPlayerHit.Raise();
                 break;
 
             default:
