@@ -10,7 +10,7 @@ public abstract class Monster : MonoBehaviour
     public float speed;
 
     [Header("Event")]
-    public GameEvent OnMonsterDie;
+    public GameEvent EventMonsterDie;
 
     [SerializeField] protected Rigidbody2D _rb;
     [SerializeField] private PolygonCollider2D _col;
@@ -79,7 +79,7 @@ public abstract class Monster : MonoBehaviour
     {
         MonsterDiePositionX.Set(transform.position.x);
         MonsterDiePositionY.Set(transform.position.y);
-        OnMonsterDie.Raise();
+        EventMonsterDie.Raise();
         Destroy(this.gameObject);
     }
 }

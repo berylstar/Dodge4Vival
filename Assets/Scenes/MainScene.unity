@@ -101138,7 +101138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1151965903
 Transform:
   m_ObjectHideFlags: 0
@@ -101170,6 +101170,8 @@ MonoBehaviour:
   SpawnCooldownTime: {fileID: 11400000, guid: c55b6403e96a1824ba0e6c8098a342df, type: 2}
   _monsters:
   - {fileID: 7687346059037502737, guid: f8596ad9a0ad48b499b1bc1cf82db796, type: 3}
+  - {fileID: 7687346059037502737, guid: 9bffaee87b94b0c40a407277fb719c49, type: 3}
+  - {fileID: 7687346059037502737, guid: 59473e3a9cbf9314e8098d43835a2c17, type: 3}
   _player: {fileID: 2809391260862661382}
 --- !u!114 &1151965905
 MonoBehaviour:
@@ -110102,11 +110104,11 @@ MonoBehaviour:
   LowHP: {fileID: 11400000, guid: 042d923245f418042ad6aefff6b743bd, type: 2}
   PlayerSpeed: {fileID: 11400000, guid: 86ba3d75fc45cf947b64bac722b38988, type: 2}
   PlayerAttackCooltime: {fileID: 11400000, guid: 04bf88f03a4c5d24ba4d9c62d3e5e379, type: 2}
-  OnPlayerHit: {fileID: 11400000, guid: a74942a1cfad1cc4b862927f2e8e4077, type: 2}
-  OnPlayerDie: {fileID: 11400000, guid: bb8e1a5b5913a7648aaa4331b295b4ec, type: 2}
-  OnPlayerHeal: {fileID: 11400000, guid: 3d305959802984246bdfac741bff60a7, type: 2}
-  OnPlayerLowHP: {fileID: 11400000, guid: 46c24665e0a0dcf4685ebcd5ec9a501c, type: 2}
-  OnPlayerInvincible: {fileID: 11400000, guid: 6d4b303b6ff2d2a41b3c864094bbd76a, type: 2}
+  EventPlayerHit: {fileID: 11400000, guid: a74942a1cfad1cc4b862927f2e8e4077, type: 2}
+  EventPlayerDie: {fileID: 11400000, guid: bb8e1a5b5913a7648aaa4331b295b4ec, type: 2}
+  EventPlayerHeal: {fileID: 11400000, guid: 3d305959802984246bdfac741bff60a7, type: 2}
+  EventPlayerLowHP: {fileID: 11400000, guid: 46c24665e0a0dcf4685ebcd5ec9a501c, type: 2}
+  EventPlayerInvincible: {fileID: 11400000, guid: 6d4b303b6ff2d2a41b3c864094bbd76a, type: 2}
 --- !u!114 &8248098938369912172
 MonoBehaviour:
   m_ObjectHideFlags: 0

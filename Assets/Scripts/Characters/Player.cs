@@ -38,16 +38,17 @@ public class Player : MonoBehaviour
     public FloatVariable PlayerAttackCooltime;
 
     [Header("Event")]
-    public GameEvent OnPlayerHit;
-    public GameEvent OnPlayerDie;
-    public GameEvent OnPlayerHeal;
-    public GameEvent OnPlayerLowHP;
-    public GameEvent OnPlayerInvincible;
+    public GameEvent EventPlayerHit;
+    public GameEvent EventPlayerDie;
+    public GameEvent EventPlayerHeal;
+    public GameEvent EventPlayerLowHP;
+    public GameEvent EventPlayerInvincible;
 
     private void Awake()
     {
         I = this;
         HP.Set(MaxHP.i);
+        PlayerSpeed.Set(5);
         _mainCam = Camera.main;
     }
 
@@ -65,15 +66,15 @@ public class Player : MonoBehaviour
             if (HP.i <= 0)
             {
                 HP.i = 0;
-                OnPlayerDie.Raise();
+                EventPlayerDie.Raise();
             }
             else
             {
-                OnPlayerHit.Raise();
+                EventPlayerHit.Raise();
             }
 
             if (HP.i <= LowHP.i)
-                OnPlayerLowHP.Raise();
+                EventPlayerLowHP.Raise();
         }
         else if (collision.CompareTag("Trap"))
         {
@@ -155,7 +156,7 @@ public class Player : MonoBehaviour
         if (value.isPressed)
         {
             //Debug.Log("SKILL");
-            OnPlayerHeal.Raise();
+            EventPlayerHeal.Raise();
         }
     }
 
