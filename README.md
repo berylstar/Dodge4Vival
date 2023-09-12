@@ -11,7 +11,7 @@ Pumpkin | 3 | 2 | Straight
 Doc | 1 | 5 | Straight
 MaskedOrc | 3 | 3 | Straight
 OrcShaman | 2 | 4 | Follower
-OrcWarrior | 5 | 2 | Straight
+OrcWarrior | 6 | 1 | Straight
 Orge | 10 | 2 | Follower
 Chort | 4 | 4 | Follower
 Wogol | 5 | 3 | Follower

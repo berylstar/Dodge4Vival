@@ -6,7 +6,7 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MaskedOrc
+  m_Name: OrcMasked
   m_Controller: {fileID: 9100000, guid: 30fb84315afa72541b97feefb0962737, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: ce6c1077feebc3244b7ca93bcb149dcf, type: 2}
