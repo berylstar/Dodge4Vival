@@ -60,34 +60,37 @@ public class Player : MonoBehaviour
     {
         if (collision.CompareTag("Monster") && !_invincible)
         {
-            StartCoroutine(HitCo());
+            HP.Change(-1);
+
+            if (HP.i <= 0)
+            {
+                HP.i = 0;
+                OnPlayerDie.Raise();
+            }
+            else
+            {
+                OnPlayerHit.Raise();
+            }
+
+            if (HP.i <= LowHP.i)
+                OnPlayerLowHP.Raise();
         }
         else if (collision.CompareTag("Trap"))
         {
-            collision.GetComponent<Trap>().Effect();
+            collision.GetComponent<Trap>().Effect(this);
         }
+    }
+
+    public void OnHitAnimator()
+    {
+        _playerAnimator.SetTrigger("IsHit");
+        _playerRenderer.color = new Color32(200, 100, 100, 255);
+        _invincible = true;
+        StartCoroutine(HitCo());
     }
 
     private IEnumerator HitCo()
     {
-        HP.i -= 1;
-
-        if (HP.i <= 0)
-        {
-            HP.i = 0;
-            OnPlayerDie.Raise();
-        }
-        else
-        {
-            OnPlayerHit.Raise();
-        }
-
-        if (HP.i <= LowHP.i)
-            OnPlayerLowHP.Raise();
-
-        _playerAnimator.SetTrigger("IsHit");
-        _playerRenderer.color = new Color32(200, 100, 100, 255);
-        _invincible = true;
         yield return new WaitForSecondsRealtime(1f);
         _playerRenderer.color = Color.white;
         _invincible = false;
