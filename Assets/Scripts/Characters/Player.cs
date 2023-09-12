@@ -30,8 +30,6 @@ public class Player : MonoBehaviour
     public GameObject bullet;
     [SerializeField] private Transform _bulletSpawnPoint;
 
-    public GameEvent onPlayerHit;
-
     private void Awake()
     {
         I = this;
@@ -63,8 +61,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            //EventManager.I.PlayerHitEvent.Invoke();
-            onPlayerHit.Raise();
+            EventManager.I.PlayerHitEvent.Invoke();
         }
 
         if (GameManager.I.HP.i <= GameManager.I.LowHP.i)

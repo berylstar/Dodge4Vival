@@ -19,5 +19,4 @@ public class ItemDropController : MonoBehaviour
         _newPosition = new Vector2(MonsterDiePositionX.f, MonsterDiePositionY.f);
         Instantiate(_item, _newPosition, Quaternion.identity, transform);
     }
-    
 }

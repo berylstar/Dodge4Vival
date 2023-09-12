@@ -29,7 +29,7 @@ public class MonsterSpawnController : MonoBehaviour
                 float y = Random.Range(-5.0f, 5.0f);
                 _spawnPosition.x += x;
                 _spawnPosition.y += y;
-                Instantiate(_monsters[0], _spawnPosition, Quaternion.identity, transform);
+                Instantiate(_monsters[Random.Range(0, _monsters.Length)], _spawnPosition, Quaternion.identity, transform);
             }
 
             yield return new WaitForSecondsRealtime(spawnCooldownTime);

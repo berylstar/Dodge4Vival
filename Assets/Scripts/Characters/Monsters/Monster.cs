@@ -30,7 +30,7 @@ public abstract class Monster : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
-            HP -= 1;
+            HP -= collision.GetComponent<Bullet>().damage;
 
             if (HP <= 0)
                 StartCoroutine(Disappear());

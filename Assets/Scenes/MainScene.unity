@@ -123,37 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &133165547
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 133165548}
-  m_Layer: 0
-  m_Name: Monsters
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &133165548
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 133165547}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &237373712
 GameObject:
   m_ObjectHideFlags: 0
@@ -101143,6 +101112,7 @@ MonoBehaviour:
   SpawnCooldownTime: {fileID: 11400000, guid: c55b6403e96a1824ba0e6c8098a342df, type: 2}
   _monsters:
   - {fileID: 7687346059037502737, guid: f8596ad9a0ad48b499b1bc1cf82db796, type: 3}
+  - {fileID: 7687346059037502737, guid: 59473e3a9cbf9314e8098d43835a2c17, type: 3}
   _player: {fileID: 2809391260862661382}
 --- !u!114 &1151965905
 MonoBehaviour:
@@ -101708,7 +101678,7 @@ Transform:
   - {fileID: 1151965903}
   - {fileID: 636439420}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1461415943
 MonoBehaviour:
@@ -109977,7 +109947,7 @@ Transform:
   - {fileID: 3683702653221162118}
   - {fileID: 6547782260950291075}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5375061295327912818
 Transform:
@@ -110189,7 +110159,6 @@ MonoBehaviour:
   _weaponTransform: {fileID: 6547782260950291075}
   bullet: {fileID: 8825997391921964759, guid: 8d69403424818874d9a824bae97e4056, type: 3}
   _bulletSpawnPoint: {fileID: 1144868778165021801}
-  onPlayerHit: {fileID: 11400000, guid: a74942a1cfad1cc4b862927f2e8e4077, type: 2}
 --- !u!114 &8248098938369912172
 MonoBehaviour:
   m_ObjectHideFlags: 0
