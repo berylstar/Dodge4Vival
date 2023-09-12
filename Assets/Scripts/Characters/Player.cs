@@ -56,11 +56,15 @@ public class Player : MonoBehaviour
         _mainCam.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Monster") && !_invincible)
         {
             StartCoroutine(HitCo());
+        }
+        else if (collision.CompareTag("Trap"))
+        {
+            collision.GetComponent<Trap>().Effect();
         }
     }
 
