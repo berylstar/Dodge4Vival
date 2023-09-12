@@ -101267,11 +101267,8 @@ MonoBehaviour:
   MonsterFullCount: {fileID: 11400000, guid: accec5849551611409d4859086ba6b33, type: 2}
   SpawnCooldownTime: {fileID: 11400000, guid: c55b6403e96a1824ba0e6c8098a342df, type: 2}
   _monsters:
-  - {fileID: 7687346059037502737, guid: 9bffaee87b94b0c40a407277fb719c49, type: 3}
-  - {fileID: 7687346059037502737, guid: 1191bb0254b89d74b886b292f9177d98, type: 3}
-  - {fileID: 7687346059037502737, guid: 59473e3a9cbf9314e8098d43835a2c17, type: 3}
-  - {fileID: 7687346059037502737, guid: bd3f4124759e4a146a79f5fe157c23e6, type: 3}
   - {fileID: 7687346059037502737, guid: f8596ad9a0ad48b499b1bc1cf82db796, type: 3}
+  - {fileID: 7687346059037502737, guid: bd3f4124759e4a146a79f5fe157c23e6, type: 3}
   - {fileID: 7687346059037502737, guid: 31fe0464541eca043a76116ce4b6f2fa, type: 3}
   _player: {fileID: 2809391260862661382}
 --- !u!114 &1151965905

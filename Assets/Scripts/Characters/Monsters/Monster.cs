@@ -6,8 +6,9 @@ using UnityEngine.Events;
 public abstract class Monster : MonoBehaviour
 {
     [Header("Status")]
-    public int HP;
-    public float speed;
+    public MonsterData data;
+    protected int HP;
+    protected float speed;
 
     [Header("Event")]
     public GameEvent EventMonsterDie;
@@ -26,6 +27,9 @@ public abstract class Monster : MonoBehaviour
     private void Awake()
     {
         _target = GameObject.Find("Player").transform;
+
+        HP = data.hp;
+        speed = data.speed;
     }
 
     protected abstract void Move(Vector3 dir);
