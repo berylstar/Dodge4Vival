@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8896677876247758122}
   - component: {fileID: 7417442559796551278}
   - component: {fileID: 4057381350146273639}
-  - component: {fileID: 6958730573746868220}
+  - component: {fileID: 289683484690227937}
   m_Layer: 0
-  m_Name: Doc
+  m_Name: BigDemon
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2086066721
   m_SortingLayer: 2
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: e1b52695573608646997f04215206edf, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 3b1d6b56d79973c4eb4fe1b535dc2cb4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 7687346059037502737}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 7e5993f0eff639b4ca3e4d40d44bc0ac, type: 2}
+  m_Controller: {fileID: 22100000, guid: 615bbad59b442414c9907039a56f7867, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -172,7 +172,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.4375}
+    oldSize: {x: 2, y: 2.25}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -180,21 +180,25 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.11846754, y: 0.24215668}
-      - {x: -0.20409346, y: 0.19601035}
-      - {x: -0.31120345, y: -0.049811054}
-      - {x: -0.2728659, y: -0.66204154}
-      - {x: -0.014618874, y: -0.5478611}
-      - {x: 0.14203906, y: -0.65156054}
-      - {x: 0.25997853, y: -0.54306597}
-      - {x: 0.2769289, y: -0.33193684}
-      - {x: 0.34607697, y: -0.2568791}
-      - {x: 0.35662326, y: -0.260851}
-      - {x: 0.34836787, y: -0.17145559}
-      - {x: 0.34548664, y: -0.16352463}
-      - {x: 0.32521558, y: 0.07285881}
+    - - {x: 0.46384385, y: 0.03839591}
+      - {x: 0.49246454, y: 0.34486997}
+      - {x: 0.29593152, y: 0.44803014}
+      - {x: -0.23343149, y: 0.42694524}
+      - {x: -0.45180413, y: 0.33281797}
+      - {x: -0.4804124, y: 0.07227541}
+      - {x: -0.30567676, y: -0.09603816}
+      - {x: -0.2882735, y: -0.37646517}
+      - {x: -0.4770673, y: -0.47854903}
+      - {x: -0.47514114, y: -0.8245399}
+      - {x: -0.3425889, y: -1.023627}
+      - {x: -0.19142333, y: -0.8502467}
+      - {x: 0.21112469, y: -0.85067767}
+      - {x: 0.29818365, y: -1.0143042}
+      - {x: 0.48192182, y: -0.83659184}
+      - {x: 0.48568356, y: -0.4638439}
+      - {x: 0.3689618, y: -0.18597817}
   m_UseDelaunayMesh: 0
---- !u!114 &6958730573746868220
+--- !u!114 &289683484690227937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,10 +207,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7687346059037502737}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90eabf1d826012c4f9e60e079e40a6ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 26161681667c89a4eae263f206ad6317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 951f834050796654183da6e45a635865, type: 2}
+  data: {fileID: 11400000, guid: 3f3c3248c3a20964abe79e88cbcc19ee, type: 2}
   EventMonsterDie: {fileID: 11400000, guid: c34261c5e568e9e43b072c1967e73b98, type: 2}
   _rb: {fileID: 7417442559796551278}
   _col: {fileID: 4057381350146273639}

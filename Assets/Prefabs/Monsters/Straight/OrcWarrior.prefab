@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4057381350146273639}
   - component: {fileID: 6958730573746868220}
   m_Layer: 0
-  m_Name: Doc
+  m_Name: OrcWarrior
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -2086066721
   m_SortingLayer: 2
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: e1b52695573608646997f04215206edf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 36a9c10418178994ab1298639357d7e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 7687346059037502737}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 7e5993f0eff639b4ca3e4d40d44bc0ac, type: 2}
+  m_Controller: {fileID: 22100000, guid: 12e690e835b42cf48b73cf7aca4c11e5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -180,19 +180,20 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.11846754, y: 0.24215668}
-      - {x: -0.20409346, y: 0.19601035}
-      - {x: -0.31120345, y: -0.049811054}
-      - {x: -0.2728659, y: -0.66204154}
-      - {x: -0.014618874, y: -0.5478611}
-      - {x: 0.14203906, y: -0.65156054}
-      - {x: 0.25997853, y: -0.54306597}
-      - {x: 0.2769289, y: -0.33193684}
+    - - {x: 0.2608918, y: 0.19319835}
+      - {x: -0.17293815, y: 0.2138134}
+      - {x: -0.17768072, y: -0.063163325}
+      - {x: -0.17494921, y: -0.63088626}
+      - {x: -0.07692948, y: -0.52560735}
+      - {x: 0.18599409, y: -0.52236885}
+      - {x: 0.19544815, y: -0.6471098}
+      - {x: 0.29113382, y: -0.5475167}
+      - {x: 0.29028118, y: -0.28297853}
       - {x: 0.34607697, y: -0.2568791}
-      - {x: 0.35662326, y: -0.260851}
+      - {x: 0.35662326, y: -0.21189266}
       - {x: 0.34836787, y: -0.17145559}
       - {x: 0.34548664, y: -0.16352463}
-      - {x: 0.32521558, y: 0.07285881}
+      - {x: 0.36082163, y: 0.06840805}
   m_UseDelaunayMesh: 0
 --- !u!114 &6958730573746868220
 MonoBehaviour:
@@ -206,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90eabf1d826012c4f9e60e079e40a6ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 951f834050796654183da6e45a635865, type: 2}
+  data: {fileID: 11400000, guid: 6486241778c7ed240b73f98fa69974b3, type: 2}
   EventMonsterDie: {fileID: 11400000, guid: c34261c5e568e9e43b072c1967e73b98, type: 2}
   _rb: {fileID: 7417442559796551278}
   _col: {fileID: 4057381350146273639}

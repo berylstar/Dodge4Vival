@@ -203,8 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26161681667c89a4eae263f206ad6317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 1
-  speed: 2
+  data: {fileID: 11400000, guid: 4ad7f2d4be5ecf14fab1009f3c290211, type: 2}
   EventMonsterDie: {fileID: 11400000, guid: c34261c5e568e9e43b072c1967e73b98, type: 2}
   _rb: {fileID: 7417442559796551278}
   _col: {fileID: 4057381350146273639}
