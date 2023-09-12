@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
     public GameObject bullet;
     [SerializeField] private Transform _bulletSpawnPoint;
 
+    public GameEvent onPlayerHit;
+
     private void Awake()
     {
         I = this;
@@ -39,7 +41,6 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // 카메라가 플레이어를 따라 이동
         _mainCam.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }
 
@@ -53,19 +54,17 @@ public class Player : MonoBehaviour
 
     private IEnumerator HitCo()
     {
-        if (!_invincible)
-        {
-            GameManager.I.HP.i -= 1;
+        GameManager.I.HP.i -= 1;
 
-            if (GameManager.I.HP.i <= 0)
-            {
-                GameManager.I.HP.i = 0;
-                EventManager.I.PlayerDieEvent.Invoke();
-            }
-            else
-            {
-                EventManager.I.PlayerHitEvent.Invoke();
-            }
+        if (GameManager.I.HP.i <= 0)
+        {
+            GameManager.I.HP.i = 0;
+            EventManager.I.PlayerDieEvent.Invoke();
+        }
+        else
+        {
+            //EventManager.I.PlayerHitEvent.Invoke();
+            onPlayerHit.Raise();
         }
 
         if (GameManager.I.HP.i <= GameManager.I.LowHP.i)
@@ -137,7 +136,8 @@ public class Player : MonoBehaviour
     {
         if (value.isPressed)
         {
-            Debug.Log("SKILL");
+            //Debug.Log("SKILL");
+            EventManager.I.PlayerHealingEvent.Invoke();
         }
     }
 }

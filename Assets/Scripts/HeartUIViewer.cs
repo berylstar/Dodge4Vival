@@ -1,63 +1,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class HeartUIViewer : MonoBehaviour
 {
-    [Header("UI References")]
     [SerializeField] private Image _image;
 
-    [SerializeField] private HeartUI _heartUI;
-    [SerializeField] private IntVariable _hp;
+    [SerializeField] private Transform hearts;
 
-    private List<Image> _clones = new List<Image>();
-    private Vector2[] _uiPositions;
-    private int _positionLength = 7;
-
-    public void Awake()
-    {
-        _uiPositions = new Vector2[_positionLength];
-        for(int i = 0; i < _uiPositions.Length; i++)
-        {
-            _uiPositions[i].x = 53f + (i * 25f);
-            _uiPositions[i].y = 65f;
-        }
-    }
     public void Start()
     {
-        DisplayHeart();
-    }
-
-    public void DisplayHeart()
-    {
-        for(int i = 0; i < _hp.i; i++)
+        for (int i = 0; i < GameManager.I.HP.i; i++)
         {
-            _image.sprite = _heartUI.Sprite;
-            Vector2 newPosition = new Vector2();
-            newPosition.x = _uiPositions[i % _positionLength].x;
-            newPosition.y = _uiPositions[i % _positionLength].y + (i / _positionLength * 25);
-            _clones.Add(Instantiate(_image, newPosition, Quaternion.identity, transform));
+            AddHeart();
         }
     }
 
-    public void AddHeart()
+    private void AddHeart()
     {
-        int addIndex = _clones.Count;
-        Vector2 newPosition = new Vector2();
-        newPosition.x = _uiPositions[addIndex % _positionLength].x;
-        newPosition.y = _uiPositions[addIndex % _positionLength].y + (addIndex / _positionLength * 25);
-        _clones.Add(Instantiate(_image, newPosition, Quaternion.identity, transform));
+        Instantiate(_image, hearts);
     }
 
-    public void RemoveHeart()
+    private void RemoveHeart()
     {
-        int lastIndex = _clones.Count - 1;
-        if(lastIndex >= 0 )
-        {
-            Image clone = _clones[lastIndex];
-            _clones.RemoveAt(lastIndex);
-            Destroy(clone.gameObject);
-        }
-        
+        Destroy(hearts.GetChild(0).gameObject);
+    }
+
+    private void Heal()
+    {
+        GameManager.I.HP.i += 1;
     }
 }

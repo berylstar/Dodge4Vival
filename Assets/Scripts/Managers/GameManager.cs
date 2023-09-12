@@ -31,11 +31,12 @@ public class GameManager : MonoBehaviour
         I = this;
 
         InitialVariables();
+        Time.timeScale = 1.0f;
     }
 
     void Start()
     {
-        Time.timeScale = 1.0f;
+        _monsterSpawnController.SetSpawnPosition(new Vector2(_player.transform.position.x, _player.transform.position.y));
     }
 
     void Update()
