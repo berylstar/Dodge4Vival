@@ -3,7 +3,24 @@ guid: cd223bae64c74ae4ab8386b15f2f5cf2
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _playerRenderer: {instanceID: 0}
+  - _playerAnimator: {instanceID: 0}
+  - _playerRigidbody: {instanceID: 0}
+  - _weaponRenderer: {instanceID: 0}
+  - _weaponTransform: {instanceID: 0}
+  - bullet: {instanceID: 0}
+  - _bulletSpawnPoint: {instanceID: 0}
+  - HP: {fileID: 11400000, guid: 77e8274cd6f4c064dbeb57df4a612b2e, type: 2}
+  - MaxHP: {fileID: 11400000, guid: 45d1e391a3b2f3d4ca9dc191de90193a, type: 2}
+  - LowHP: {fileID: 11400000, guid: 042d923245f418042ad6aefff6b743bd, type: 2}
+  - PlayerSpeed: {fileID: 11400000, guid: 86ba3d75fc45cf947b64bac722b38988, type: 2}
+  - PlayerAttackCooltime: {fileID: 11400000, guid: 04bf88f03a4c5d24ba4d9c62d3e5e379, type: 2}
+  - OnPlayerHit: {fileID: 11400000, guid: a74942a1cfad1cc4b862927f2e8e4077, type: 2}
+  - OnPlayerDie: {fileID: 11400000, guid: bb8e1a5b5913a7648aaa4331b295b4ec, type: 2}
+  - OnPlayerHeal: {fileID: 11400000, guid: 3d305959802984246bdfac741bff60a7, type: 2}
+  - OnPlayerLowHP: {fileID: 11400000, guid: 46c24665e0a0dcf4685ebcd5ec9a501c, type: 2}
+  - OnPlayerInvincible: {fileID: 11400000, guid: 6d4b303b6ff2d2a41b3c864094bbd76a, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
