@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ItemDropController : MonoBehaviour
 {
@@ -13,10 +12,32 @@ public class ItemDropController : MonoBehaviour
 
     public void DropRandomItem()
     {
-        int index = Random.Range(0, _items.Length);
-        _item.GetComponent<SpriteRenderer>().sprite = _items[index].Sprite;
-        _item.GetComponent<Item>().SetItemData(_items[index]);
-        _newPosition = new Vector2(MonsterDiePositionX.f, MonsterDiePositionY.f);
-        Instantiate(_item, _newPosition, Quaternion.identity, transform);
+        int index = GetRandomIndex();
+        if(index >= 0)
+        {
+            _item.GetComponent<SpriteRenderer>().sprite = _items[index].Sprite;
+            _item.GetComponent<Item>().SetItemData(_items[index]);
+            _newPosition = new Vector2(MonsterDiePositionX.f, MonsterDiePositionY.f);
+            Instantiate(_item, _newPosition, Quaternion.identity, transform);
+        }
+    }
+
+    private int GetRandomIndex()
+    {
+        int index = -1;
+        int percentNum = Random.Range(0, 100);
+        if (percentNum < 50)
+        {
+            if (percentNum < 20)
+                index = 0;
+            else if (percentNum < 40)
+                index = 1;
+            else
+                index = 2;
+
+            if (index >= _items.Length)
+                index = 0;
+        }
+        return index;
     }
 }

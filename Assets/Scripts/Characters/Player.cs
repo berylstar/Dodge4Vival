@@ -12,15 +12,16 @@ public class Player : MonoBehaviour
     private Camera _mainCam;
     private readonly int MIN_CAMERA_DISTANCE = 2;
     private readonly int MAX_CAMERA_DISTANCE = 15;
+    private bool _canAttack = true;
+    private bool _invincible = false;
+    private float _rotZ = 0f;
+    private Coroutine _invincibleCo;
+    private Coroutine _speedUpCo;
 
     [Header("Player")]
     [SerializeField] private SpriteRenderer _playerRenderer;
     [SerializeField] private Animator _playerAnimator;
     [SerializeField] private Rigidbody2D _playerRigidbody;
-
-    private bool _canAttack = true;
-    private bool _invincible = false;
-    private float _rotZ = 0f;
 
     [Header("Weapon")]
     [SerializeField] private SpriteRenderer _weaponRenderer;
@@ -34,21 +35,26 @@ public class Player : MonoBehaviour
     public IntVariable HP;
     public IntVariable MaxHP;
     public IntVariable LowHP;
-    public IntVariable PlayerSpeed;
+    public IntVariable Speed;
+    public IntVariable StartSpeed;
+    public IntVariable SpeedUpAmount;
     public FloatVariable PlayerAttackCooltime;
+    public FloatVariable InvincibleTime;
+    public FloatVariable SpeedUpTime;
 
     [Header("Event")]
     public GameEvent EventPlayerHit;
     public GameEvent EventPlayerDie;
     public GameEvent EventPlayerHeal;
     public GameEvent EventPlayerLowHP;
+    public GameEvent EventPlayerSpeedUp;
     public GameEvent EventPlayerInvincible;
 
     private void Awake()
     {
         I = this;
         HP.Set(MaxHP.i);
-        PlayerSpeed.Set(5);
+        Speed.Set(StartSpeed.i);
         _mainCam = Camera.main;
     }
 
@@ -102,7 +108,7 @@ public class Player : MonoBehaviour
         Vector2 moveInput = value.Get<Vector2>().normalized;
 
         _playerAnimator.SetBool("IsMoving", (moveInput.magnitude != 0));
-        _playerRigidbody.velocity = moveInput * PlayerSpeed.i;
+        _playerRigidbody.velocity = moveInput * Speed.i;
     }
 
     public void OnLook(InputValue value)
@@ -164,5 +170,37 @@ public class Player : MonoBehaviour
     {
         if (HP.i < MaxHP.i)
             HP.Change(1);
+    }
+
+    public void OnSpeedUP()
+    {
+        if (_speedUpCo != null)
+            StopCoroutine(_speedUpCo);
+        _speedUpCo = StartCoroutine(SpeedUPCo());
+    }
+
+    private IEnumerator SpeedUPCo()
+    {
+        Speed.Change(SpeedUpAmount.i);
+
+        yield return new WaitForSecondsRealtime(SpeedUpTime.f);
+
+        Speed.Set(StartSpeed.i);
+    }
+
+    public void OnInvincible()
+    {
+        if (_invincibleCo != null)
+            StopCoroutine(_invincibleCo);
+        _invincibleCo = StartCoroutine(InvincibleCo());
+    }
+
+    private IEnumerator InvincibleCo()
+    {
+        _invincible = true;
+
+        yield return new WaitForSecondsRealtime(InvincibleTime.f);
+
+        _invincible = false;
     }
 }
