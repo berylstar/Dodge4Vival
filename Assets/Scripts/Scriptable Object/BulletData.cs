@@ -7,4 +7,5 @@ public class BulletData : ScriptableObject
 {
     public int damage;
     public float speed;
+    public AudioClip sound;
 }
