@@ -16,3 +16,21 @@ Orge | 10 | 2 | Follower
 Chort | 4 | 4 | Follower
 Wogol | 5 | 3 | Follower
 BigDemon | 15 | 3 | Follower
+
+
+---
+
+
+# 구현 목록 
+
+🔽 장성림
+ - 하트 UI 생성
+ - 몬스터 스폰 컨트롤
+ - 아이템 드랍 컨트롤
+ - 구르기 애니메이션
+ - 아이템 프리팹들 추가
+ - 스크립터블 오브젝트 추가
+     - 변수
+     - 이벤트
+
+
