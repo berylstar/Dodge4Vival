@@ -7,11 +7,9 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BigDemon
-  m_Controller: {fileID: 9100000, guid: 30fb84315afa72541b97feefb0962737, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6cc1a15f199b0774cb9d9000361f3479, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: ce6c1077feebc3244b7ca93bcb149dcf, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 43c8e336d28143c4da97270bb83f02f7, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: ed85c34382ed53f46bcb9fc871428ba6, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 43c8e336d28143c4da97270bb83f02f7, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: b7fcaa2e864f1ba43bb77f849749b58a, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: ac9a281306618af488c22dd74c942877, type: 2}

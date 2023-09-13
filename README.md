@@ -1,36 +1,100 @@
 # DodgeLike
  
+# 몬스터
 
-이름|체력|스피드|이동|
---|--|--|--|
-TinyZombie | 2 | 2 | Straight
-Goblin | 1 | 3 | Straight
-Imp | 1 | 3 | Straight
-Angel | 2 | 2 | Follower
-Pumpkin | 3 | 2 | Straight
-Doc | 1 | 5 | Straight
-MaskedOrc | 3 | 3 | Straight
-OrcShaman | 2 | 4 | Follower
-OrcWarrior | 6 | 1 | Straight
-Orge | 10 | 2 | Follower
-Chort | 4 | 4 | Follower
-Wogol | 5 | 3 | Follower
-BigDemon | 15 | 3 | Follower
+그룹 | 이름|체력|스피드|이동|
+--|--|--|--| -- |
+1 | TinyZombie | 2 | 2 | Straight
+1 | Goblin | 1 | 3 | Straight
+1 | Imp | 1 | 3 | Straight
+2 | Angel | 2 | 2 | Follower
+2 | Pumpkin | 3 | 2 | Straight
+2 | Doc | 1 | 5 | Straight
+3 | MaskedOrc | 3 | 3 | Straight
+3 | OrcShaman | 2 | 4 | Follower
+3 | OrcWarrior | 6 | 1 | Straight
+3 | Orge | 10 | 2 | Follower
+4 | Chort | 4 | 4 | Follower
+4 | Wogol | 5 | 3 | Follower
+4 | BigDemon | 15 | 3 | Follower
 
+# 레벨 디자인
 
----
+시간(s) | 1 | 2 | 3 | 3-Orge | 4 | 4-BigDemon
+--|--|--|--|--|--|--|
+30| O |  |  |  |  |  |
+60|  | O |  |  |  |  |
+90| O |  |  |  |  |  |
+120|  |  | O |  |  |  |
+150|  | O |  |  |  |  |
+180| O |  |  |  |  |  |
+210|  |  |  | X |  |  |
+240|  |  | O |  |  |  |
+270|  |  |  |  | O |  |
+300|  | O |  |  |  |  |
+330|  |  |  | X |  |  |
+360| O |  |  |  |  |  |
+390|  |  |  |  | O |  |
+420|  |  | O |  |  |  |
+450|  |  |  |  |  | X |
+ |  |  |  |  | 30s  |  |
+ |  |  |  |  |  |  | 50s
 
 
 # 구현 목록 
 
+🔽 김민상
+- 플레이어
+    - InputSystem 구축
+        - WASD : 이동
+        - Left Click : 공격
+        - Mouse Scroll : 카메라 확대/축소
+    - 애니메이터
+    - 기본 로직 구현
+    - 코루틴을 이용한 쿨타임 구현
+
+- 몬스터
+    - 애니메이터
+        - Override Controller 이용
+    - 스크립터블 오브젝트로 상수 관리
+    - 몬스터 패턴별 분리 구현 : Follower, Straight
+
+- 게임 시스템
+    - 몬스터 레벨 디자인
+    - 무작위 몬스터 출현 이벤트 구축
+    - 오브젝트 충돌 이벤트 및 시각적 효과 구현
+
+- 투사체
+    - 요소 디자인 및 프리팹화
+
+- 트랩 오브젝트 추가
+
+
 🔽 장성림
- - 하트 UI 생성
- - 몬스터 스폰 컨트롤
- - 아이템 드랍 컨트롤
- - 구르기 애니메이션
- - 아이템 프리팹들 추가
- - 스크립터블 오브젝트 추가
-     - 변수
-     - 이벤트
+- 스크립터블 오브젝트
+    - 데이터 정리
+    - 이벤트 관리
+- 아이템
+    - 요소 디자인 및 프리팹화
+    - 아이템 드롭 컨트롤러 구축
+- 무기
+    - 랜덤 무기 획득 시스템
+    - UI
+
+- 플레이어
+    - 구르기 기능 추가
 
 
+🔽 신현주
+- 추가 디자인 요소 제작
+- StartScene
+    - UI 제작
+    - 애니매이션 추가
+    - Scene간 이동 관리
+
+
+🔽 이장원
+- 게임 기본 로직 디자인
+- Grid 및 Tilemap 구현
+- 사운드 요소 관리
+- 게임 테스트 및 밸런스 조정
