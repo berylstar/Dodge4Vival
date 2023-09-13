@@ -68,7 +68,10 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Monster") && !_isInvincible)
+        if (_isInvincible)
+            return;
+
+        if (collision.CompareTag("Monster") || collision.CompareTag("Trap"))
         {
             EventPlayerHit.Raise();
 
@@ -81,11 +84,6 @@ public class Player : MonoBehaviour
             {
                 EventPlayerLowHP.Raise();
             }
-
-        }
-        else if (collision.CompareTag("Trap"))
-        {
-            collision.GetComponent<Trap>().Effect(this);
         }
     }
 
