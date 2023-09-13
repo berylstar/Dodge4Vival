@@ -93,6 +93,7 @@ public class Player : MonoBehaviour
         _playerRenderer.color = new Color32(200, 100, 100, 255);
         _isInvincible = true;
         StartCoroutine(HitCo());
+        StartCoroutine(HitVameraEffect());
     }
 
     private IEnumerator HitCo()
@@ -100,6 +101,15 @@ public class Player : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
         _playerRenderer.color = Color.white;
         _isInvincible = false;
+    }
+
+    private IEnumerator HitVameraEffect()
+    {
+        _mainCam.transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y, -10);
+        yield return new WaitForSecondsRealtime(0.1f);
+
+        _mainCam.transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y, -10);
+        yield return new WaitForSecondsRealtime(0.1f);
     }
 
     public void OnMove(InputValue value)
@@ -178,7 +188,7 @@ public class Player : MonoBehaviour
         _isInvincible = false;
         _playerRigidbody.velocity = _moveInput * Speed.i;
 
-        yield return new WaitForSecondsRealtime(PlayerRollCooltime.f);
+        yield return new WaitForSecondsRealtime(PlayerRollCooltime.f - 0.3f);
         _isRoll = false;
     }
 

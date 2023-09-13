@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text _TimeText;
     [SerializeField] private TMP_Text _bestScoreText;
     [SerializeField] private TMP_Text _thisScoreText;
+    [SerializeField] private Image _rollCoolTimeImage;
 
     [Header("MonsterSpawn")]
     public FloatVariable SpawnCooldownTime;
@@ -71,6 +73,23 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("StartScene");
     }
 
+    public void ShowRollCooltime()
+    {
+        _rollCoolTimeImage.fillAmount = 0;
+        StartCoroutine(ShowImageCo());
+    }
+
+    private IEnumerator ShowImageCo()
+    {
+        while (_rollCoolTimeImage.fillAmount < 1)
+        {
+            _rollCoolTimeImage.fillAmount += Time.deltaTime / 3;
+            yield return null;
+        }
+        
+    }
+
+    #region MONSTER
     private void AddMonster1() => Instantiate(monsters1[Random.Range(0, monsters1.Count)], RandomSpawnPosition(), Quaternion.identity, spawnHolder);
     private void AddMonster2() => Instantiate(monsters2[Random.Range(0, monsters2.Count)], RandomSpawnPosition(), Quaternion.identity, spawnHolder);
     private void AddMonster3() => Instantiate(monsters3[Random.Range(0, monsters3.Count - 1)], RandomSpawnPosition(), Quaternion.identity, spawnHolder);
@@ -156,4 +175,5 @@ public class GameManager : MonoBehaviour
             Destroy(child.gameObject);
         }
     }
+    #endregion
 }
