@@ -70,7 +70,6 @@ public class Player : MonoBehaviour
     {
         if (collision.CompareTag("Monster") && !_invincible)
         {
-            HP.Change(-1);
             EventPlayerHit.Raise();
 
             if (HP.i <= 0)
