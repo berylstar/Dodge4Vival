@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text _thisScoreText;
 
     [Header("MonsterSpawn")]
-    public IntVariable MonsterFullCount;
     public FloatVariable SpawnCooldownTime;
     public Transform spawnHolder;
 
@@ -29,9 +28,6 @@ public class GameManager : MonoBehaviour
 
     private UnityEvent _spawnEvent = new();
     private int spawnCounter = 0;
-
-    [Header("Variables")]
-    public FloatVariable GameEndTime;
 
     private float _inTime = 0f;
 
