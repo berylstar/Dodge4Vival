@@ -2622,6 +2622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63c5b6b71b9f48340bfe672c1a1380fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 3c1cd810330e3fa48a3af2f7a96e53a4, type: 2}
   _items:
   - {fileID: 4006944593985222901, guid: f1b8cdcd150e96b43b6223db999540d0, type: 3}
   - {fileID: 4006944593985222901, guid: 74f1bb89c2d51d042ab7eed7cd4cc96b, type: 3}
@@ -3691,7 +3692,6 @@ MonoBehaviour:
   _TimeText: {fileID: 721732140}
   _bestScoreText: {fileID: 544014757}
   _thisScoreText: {fileID: 1633460419}
-  MonsterFullCount: {fileID: 11400000, guid: accec5849551611409d4859086ba6b33, type: 2}
   SpawnCooldownTime: {fileID: 11400000, guid: c55b6403e96a1824ba0e6c8098a342df, type: 2}
   spawnHolder: {fileID: 1286398231}
   monsters1:
@@ -3711,7 +3711,6 @@ MonoBehaviour:
   - {fileID: 7687346059037502737, guid: a2a122ff92247fa41b175d37ba3e594a, type: 3}
   - {fileID: 7687346059037502737, guid: 9bffaee87b94b0c40a407277fb719c49, type: 3}
   - {fileID: 7687346059037502737, guid: f13569274973b534b850c8f017765a8f, type: 3}
-  GameEndTime: {fileID: 11400000, guid: e25a98f7efb78404ebfd2072fb986d7d, type: 2}
 --- !u!114 &809296809
 MonoBehaviour:
   m_ObjectHideFlags: 0
