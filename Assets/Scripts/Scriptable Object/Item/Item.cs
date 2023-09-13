@@ -13,7 +13,7 @@ public class Item : MonoBehaviour
 
     private IEnumerator Disappear()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(20f);
         Destroy(this.gameObject);
     }
 

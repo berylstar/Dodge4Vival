@@ -25,7 +25,7 @@ public class ItemDropController : MonoBehaviour
     {
         switch (Random.Range(0f, 1f))
         {
-            case < 0.005f:     return 0;
+            case < 0.002f:     return 0;
             case < 0.03f:      return 1;
             case < 0.06f:      return 2;
             case < 0.11f:      return 3;
