@@ -22,28 +22,16 @@ public class ItemDropController : MonoBehaviour
 
     private int GetRandomIndex()
     {
-        int index = -1;
-
-        int percentNum = Random.Range(0, 100);
-
-        if (percentNum < 5)
-            index = 0;
-        else if (percentNum < 35)
-            index = 1;
-        else if (percentNum < 40)
-            index = 2;
-        else if (percentNum < 45)
-            index = 3;
-        else if (percentNum < 50)
-            index = 4;
-        else if (percentNum < 55)
-            index = 5;
-        else if (percentNum < 60)
-            index = 6;
-
-        if (index >= _items.Length)
-            index = 1;
-
-        return index;
+        switch (Random.Range(0f, 1f))
+        {
+            case < 0.002f:     return 0;
+            case < 0.03f:      return 1;
+            case < 0.06f:      return 2;
+            case < 0.11f:      return 3;
+            case < 0.16f:      return 4;
+            case < 0.21f:      return 5;
+            case < 0.31f:      return 6;
+            default:           return -1;
+        }
     }
 }

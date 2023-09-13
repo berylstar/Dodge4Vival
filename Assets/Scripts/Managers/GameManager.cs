@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
 
     public void Retry()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("StartScene");
     }
 
@@ -125,8 +126,8 @@ public class GameManager : MonoBehaviour
     {
         Vector2 RandomVector = (Vector2)player.transform.position + Random.insideUnitCircle.normalized * 6;
         
-        float x = Mathf.Max(Mathf.Min(RandomVector.x, 54), -54);
-        float y = Mathf.Max(Mathf.Min(RandomVector.y, 43), -43);
+        float x = Mathf.Max(Mathf.Min(RandomVector.x, 39), -39);
+        float y = Mathf.Max(Mathf.Min(RandomVector.y, 27), -28);
 
         return new Vector2(x, y);
     }
