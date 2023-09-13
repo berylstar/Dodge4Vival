@@ -26,7 +26,7 @@ public class HeartUIViewer : MonoBehaviour
 
     public void RemoveHeart()
     {
-        if (index <= 0)
+        if (index < 0)
             return;
 
         hearts[index].sprite = emptyHeart;
