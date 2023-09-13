@@ -9,10 +9,10 @@ public class BulletFireController : MonoBehaviour
 
     [SerializeField] private Transform _bulletSpawnPoint;
 
-    public void CreatTeiredBullet(GameObject bullet, float rotZ, int teir)
+    public void CreatTeiredBullet(GameObject bullet, float rotZ, int tier)
     {
         _bullet = bullet;
-        switch (teir)
+        switch (tier)
         {
             case 1:
                 TeirOne(rotZ);

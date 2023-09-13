@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
     [Header("Bullet")]
     [SerializeField] private GameObject _bullet;
-    public IntVariable BulletTeir;
+    public IntVariable BulletTier;
 
     [Header("Variable")]
     public IntVariable HP;
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         I = this;
         HP.Set(MaxHP.i);
         Speed.Set(StartSpeed.i);
-        BulletTeir.Set(1);
+        BulletTier.Set(1);
         _mainCam = Camera.main;
         _bulletFireController = GetComponent<BulletFireController>();
     }
@@ -131,7 +131,7 @@ public class Player : MonoBehaviour
     {
         if (value.isPressed && _canAttack)
         {
-            _bulletFireController.CreatTeiredBullet(_bullet, _rotZ - 90, BulletTeir.i);
+            _bulletFireController.CreatTeiredBullet(_bullet, _rotZ - 90, BulletTier.i);
             StartCoroutine(AttackCoolTimeCo());
         }
     }
@@ -228,14 +228,13 @@ public class Player : MonoBehaviour
     {
         if (_bullet == bullet)
         {
-            if (BulletTeir.i < 4)
-                BulletTeir.Change(1);
+            if (BulletTier.i < 4)
+                BulletTier.Change(1);
         }
         else
         {
-            BulletTeir.Set(1);
+            BulletTier.Set(1);
             _bullet = bullet;
         }
-            
     }
 }
