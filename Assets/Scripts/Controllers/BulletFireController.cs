@@ -34,8 +34,7 @@ public class BulletFireController : MonoBehaviour
 
     private void TeirOne(float rotZ)
     {
-        Instantiate(_bullet, _bulletSpawnPoint.position, Quaternion.Euler(0, 0, rotZ + 10));
-        Instantiate(_bullet, _bulletSpawnPoint.position, Quaternion.Euler(0, 0, rotZ - 10));
+        Instantiate(_bullet, _bulletSpawnPoint.position, Quaternion.Euler(0, 0, rotZ));
     }
 
     private IEnumerator TeirTwoCo(float rotZ)
