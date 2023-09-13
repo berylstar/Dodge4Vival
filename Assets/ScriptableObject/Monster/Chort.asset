@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868d2a4fc94c52d479708d087fd22209, type: 3}
   m_Name: Chort
   m_EditorClassIdentifier: 
-  hp: 4
+  hp: 2
   speed: 4

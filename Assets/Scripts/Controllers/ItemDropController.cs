@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ItemDropController : MonoBehaviour
 {
+    [SerializeField] private ItemProbabilityData data;
     [SerializeField] private GameObject[] _items;
 
     [SerializeField] public FloatVariable MonsterDiePositionX;
@@ -22,16 +23,15 @@ public class ItemDropController : MonoBehaviour
 
     private int GetRandomIndex()
     {
-        switch (Random.Range(0f, 1f))
-        {
-            case < 0.002f:     return 0;
-            case < 0.03f:      return 1;
-            case < 0.06f:      return 2;
-            case < 0.11f:      return 3;
-            case < 0.16f:      return 4;
-            case < 0.21f:      return 5;
-            case < 0.31f:      return 6;
-            default:           return -1;
-        }
+        int iRand = Random.Range(0, 100);
+
+        if      (iRand <= data.bomb)                                            return 0;
+        else if (data.bomb < iRand && iRand <= data.invinciblePotion)           return 1;
+        else if (data.invinciblePotion < iRand && iRand <= data.axe)            return 2;
+        else if (data.axe < iRand && iRand <= data.sword)                       return 3;
+        else if (data.healingPotion < iRand && iRand <= data.healingPotion)     return 4;
+        else if (data.speedUpPotion < iRand && iRand <= data.speedUpPotion)     return 5;
+        else if (data.bow < iRand && iRand <= data.bow)                         return 6;
+        else                                                                    return - 1;
     }
 }

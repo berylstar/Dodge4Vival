@@ -1,4 +1,6 @@
-# DodgeLike
+# Dodge4Vival
+
+PPT 추가 예정
  
 # 몬스터
 
@@ -7,15 +9,15 @@
 1 | TinyZombie | 2 | 2 | Straight
 1 | Goblin | 1 | 3 | Straight
 1 | Imp | 1 | 3 | Straight
-2 | Angel | 2 | 2 | Follower
-2 | Pumpkin | 3 | 2 | Straight
+2 | Angel | 1 | 2 | Follower
+2 | Pumpkin | 2 | 3 | Straight
 2 | Doc | 1 | 5 | Straight
 3 | MaskedOrc | 3 | 3 | Straight
-3 | OrcShaman | 2 | 4 | Follower
+3 | OrcShaman | 1 | 4 | Follower
 3 | OrcWarrior | 6 | 1 | Straight
 3 | Orge | 10 | 2 | Follower
-4 | Chort | 4 | 4 | Follower
-4 | Wogol | 5 | 3 | Follower
+4 | Chort | 2 | 4 | Follower
+4 | Wogol | 4 | 2 | Follower
 4 | BigDemon | 15 | 3 | Follower
 
 # 레벨 디자인
@@ -93,9 +95,10 @@
 
 
 🔽 신현주
-- 추가 디자인 요소 제작
+- 시작 배경화면 제작
+- 게임 타이틀 제작
 - StartScene
-    - UI 제작
+    - UI 구성
     - 애니매이션 추가
     - Scene간 이동 관리
 
