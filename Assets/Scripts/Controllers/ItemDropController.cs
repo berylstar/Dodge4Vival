@@ -7,11 +7,12 @@ public class ItemDropController : MonoBehaviour
     [SerializeField] public FloatVariable MonsterDiePositionX;
     [SerializeField] public FloatVariable MonsterDiePositionY;
 
-    [SerializeField] private Vector2 _newPosition = Vector2.zero;
+    private Vector2 _newPosition = Vector2.zero;
 
     public void DropRandomItem()
     {
         int index = GetRandomIndex();
+
         if(index >= 0)
         {
             _newPosition = new Vector2(MonsterDiePositionX.f, MonsterDiePositionY.f);
@@ -22,7 +23,9 @@ public class ItemDropController : MonoBehaviour
     private int GetRandomIndex()
     {
         int index = -1;
+
         int percentNum = Random.Range(0, 100);
+
         if (percentNum < 5)
             index = 0;
         else if (percentNum < 35)

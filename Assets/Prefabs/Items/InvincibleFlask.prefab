@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &671670903710042881
 SpriteRenderer:
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 53e0425deea8aab4e92f51e700ddaa7c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0fbbd3668a07bcd41aa26c9b26372bac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -130,12 +130,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.40625, y: 0.375}
-      - {x: -0.41604233, y: 0.002300024}
-      - {x: -0.042006493, y: -0.39132047}
-      - {x: 0.04853487, y: -0.39132047}
-      - {x: 0.41604233, y: 0.0055639744}
-      - {x: 0.40625, y: 0.38479257}
+    - - {x: 0.100856304, y: 0.08658886}
+      - {x: 0.19443846, y: 0.25204778}
+      - {x: -0.16578865, y: 0.22482777}
+      - {x: -0.085018635, y: 0.07952762}
+      - {x: -0.15738201, y: -0.018139124}
+      - {x: -0.21766901, y: -0.13836455}
+      - {x: -0.16463709, y: -0.3119712}
+      - {x: 0.14952517, y: -0.3083644}
+      - {x: 0.22848988, y: -0.17838192}
+      - {x: 0.14295483, y: -0.011953354}
   m_UseDelaunayMesh: 0
 --- !u!114 &5434103483458189773
 MonoBehaviour:

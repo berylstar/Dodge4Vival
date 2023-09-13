@@ -48,15 +48,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (_inTime > GameEndTime.f)
-        {
-            GameOver();
-        }
-        else
-        {
-            _inTime += Time.deltaTime;
-            _TimeText.text = _inTime.ToString("N2");
-        }
+        _inTime += Time.deltaTime;
+        _TimeText.text = _inTime.ToString("N2");
     }
 
     public void GameOver()
@@ -121,8 +114,8 @@ public class GameManager : MonoBehaviour
             default:
                 if (spawnCounter > 480)
                 {
-                    if (spawnCounter % 200 == 0) AddMonster4B();
-                    else if (spawnCounter % 100 == 0) AddMonster3B();
+                    if (spawnCounter % 30 == 0) AddMonster4B();
+                    else if (spawnCounter % 50 == 0) AddMonster3B();
                 }
                 break;
         }
@@ -130,14 +123,8 @@ public class GameManager : MonoBehaviour
 
     private Vector2 RandomSpawnPosition()
     {
-        //Vector2 RandomVector = Random.insideUnitCircle * Random.Range(4f, 7f);
-
-        //float x = (RandomVector.x - player.transform.position.x);
-        //float y = (RandomVector.y - player.transform.position.y);
-
         Vector2 RandomVector = (Vector2)player.transform.position + Random.insideUnitCircle.normalized * 6;
         
-
         float x = Mathf.Max(Mathf.Min(RandomVector.x, 54), -54);
         float y = Mathf.Max(Mathf.Min(RandomVector.y, 43), -43);
 

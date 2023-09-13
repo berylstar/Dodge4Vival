@@ -9,25 +9,27 @@ public class HeartUIViewer : MonoBehaviour
     public IntVariable HP;
     public IntVariable MaxHP;
 
-    [SerializeField] private Image _image;
-    [SerializeField] private Transform hearts;
+    [SerializeField] private List<Image> hearts;
+    [SerializeField] Sprite fullHeart;
+    [SerializeField] Sprite emptyHeart;
 
-    public void Start()
-    {
-        for (int i = 0; i < HP.i; i++)
-        {
-            Instantiate(_image, hearts);
-        }
-    }
+    private int index = 4;
 
     public void AddHeart()
     {
-        if(hearts.childCount < MaxHP.i)
-            Instantiate(_image, hearts);
+        if (index >= 4)
+            return;
+
+        index += 1;
+        hearts[index].sprite = fullHeart;
     }
 
     public void RemoveHeart()
     {
-        Destroy(hearts.GetChild(0).gameObject);
+        if (index <= 0)
+            return;
+
+        hearts[index].sprite = emptyHeart;
+        index -= 1;
     }
 }
