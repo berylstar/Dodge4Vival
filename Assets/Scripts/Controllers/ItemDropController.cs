@@ -12,7 +12,6 @@ public class ItemDropController : MonoBehaviour
     public void DropRandomItem()
     {
         int index = GetRandomIndex();
-        Debug.Log(index);
 
         if(index >= 0)
         {
