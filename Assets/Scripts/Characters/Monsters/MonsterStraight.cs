@@ -11,7 +11,7 @@ public class MonsterStraight : Monster
 
     private void Start()
     {
-        Vector3 targetVector = _target.position - transform.position;
+        Vector3 targetVector = (Vector3)data.player.pos - transform.position;
 
         _sr.flipX = targetVector.x < 0;
 

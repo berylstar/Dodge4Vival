@@ -24,7 +24,6 @@ public class ItemDropController : MonoBehaviour
     private int GetRandomIndex()
     {
         int iRand = Random.Range(0, 100);
-        Debug.Log(iRand);
 
         if      (iRand < data.bomb)                                             return 0;
         else if (data.bomb <= iRand && iRand < data.invinciblePotion)           return 1;

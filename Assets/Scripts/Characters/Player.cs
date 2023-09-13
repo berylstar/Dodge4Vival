@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
     public FloatVariable PlayerRollCooltime;
     public FloatVariable InvincibleTime;
     public FloatVariable SpeedUpTime;
+    public Vector2Variable playerPosition;
 
     [Header("Event")]
     public GameEvent EventPlayerHit;
@@ -68,6 +69,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         _mainCam.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+        playerPosition.pos = transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
