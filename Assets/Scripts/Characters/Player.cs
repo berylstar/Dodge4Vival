@@ -13,11 +13,10 @@ public class Player : MonoBehaviour
     private readonly int MIN_CAMERA_DISTANCE = 2;
     private readonly int MAX_CAMERA_DISTANCE = 15;
     private bool _canAttack = true;
-    private bool _invincible = false;
+    private bool _isInvincible = false;
+    private bool _isRoll = false;
     private float _rotZ = 0f;
-    private Coroutine _invincibleCo;
-    private Coroutine _speedUpCo;
-    private Coroutine _rollCo;
+
     private Vector2 _moveInput;
 
     [Header("Player")]
@@ -41,6 +40,7 @@ public class Player : MonoBehaviour
     public IntVariable StartSpeed;
     public IntVariable SpeedUpAmount;
     public FloatVariable PlayerAttackCooltime;
+    public FloatVariable PlayerRollCooltime;
     public FloatVariable InvincibleTime;
     public FloatVariable SpeedUpTime;
 
@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Monster") && !_invincible)
+        if (collision.CompareTag("Monster") && !_isInvincible)
         {
             EventPlayerHit.Raise();
 
@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
     {
         _playerAnimator.SetTrigger("IsHit");
         _playerRenderer.color = new Color32(200, 100, 100, 255);
-        _invincible = true;
+        _isInvincible = true;
         StartCoroutine(HitCo());
     }
 
@@ -101,7 +101,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1f);
         _playerRenderer.color = Color.white;
-        _invincible = false;
+        _isInvincible = false;
     }
 
     public void OnMove(InputValue value)
@@ -158,34 +158,30 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void OnSkill(InputValue value)
-    {
-        if (value.isPressed)
-        {
-            //Debug.Log("SKILL");
-            //EventPlayerHeal.Raise();
-        }
-    }
-
     public void OnRoll(InputValue value)
     {
-        if (value.isPressed)
+        if (value.isPressed && !_isRoll)
         {
             _playerAnimator.SetTrigger("IsRoll");
             EventPlayerRoll.Raise();
-            _invincible = true;
-            if (_rollCo != null)
-                StopCoroutine(_rollCo);
-            _rollCo = StartCoroutine(RollCo());
+
+            StartCoroutine(RollCo());
         }
     }
 
     private IEnumerator RollCo()
     {
+        _isInvincible = true;
+        _isRoll = true;
         _playerRigidbody.velocity = _moveInput * Speed.i * 2;
+
         yield return new WaitForSecondsRealtime(0.3f);
-        _invincible = false;
+
+        _isInvincible = false;
         _playerRigidbody.velocity = _moveInput * Speed.i;
+
+        yield return new WaitForSecondsRealtime(PlayerRollCooltime.f);
+        _isRoll = false;
     }
 
     public void OnHeal()
@@ -196,9 +192,7 @@ public class Player : MonoBehaviour
 
     public void OnSpeedUP()
     {
-        if (_speedUpCo != null)
-            StopCoroutine(_speedUpCo);
-        _speedUpCo = StartCoroutine(SpeedUPCo());
+        StartCoroutine(SpeedUPCo());
     }
 
     private IEnumerator SpeedUPCo()
@@ -207,23 +201,26 @@ public class Player : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(SpeedUpTime.f);
 
-        Speed.Set(StartSpeed.i);
+        Speed.Change(-SpeedUpAmount.i);
     }
 
     public void OnInvincible()
     {
-        if (_invincibleCo != null)
-            StopCoroutine(_invincibleCo);
-        _invincibleCo = StartCoroutine(InvincibleCo());
+        if (_isInvincible)
+            return;
+
+        StartCoroutine(InvincibleCo());
     }
 
     private IEnumerator InvincibleCo()
     {
-        _invincible = true;
+        _isInvincible = true;
+        _playerRenderer.color = new Color32(255, 255, 255, 100);
 
         yield return new WaitForSecondsRealtime(InvincibleTime.f);
 
-        _invincible = false;
+        _isInvincible = false;
+        _playerRenderer.color = Color.white;
     }
 
     public void SetBullet(GameObject bullet)
