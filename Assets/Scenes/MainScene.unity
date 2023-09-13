@@ -3691,7 +3691,6 @@ MonoBehaviour:
   _TimeText: {fileID: 721732140}
   _bestScoreText: {fileID: 544014757}
   _thisScoreText: {fileID: 1633460419}
-  MonsterFullCount: {fileID: 11400000, guid: accec5849551611409d4859086ba6b33, type: 2}
   SpawnCooldownTime: {fileID: 11400000, guid: c55b6403e96a1824ba0e6c8098a342df, type: 2}
   spawnHolder: {fileID: 1286398231}
   monsters1:
@@ -3711,7 +3710,6 @@ MonoBehaviour:
   - {fileID: 7687346059037502737, guid: a2a122ff92247fa41b175d37ba3e594a, type: 3}
   - {fileID: 7687346059037502737, guid: 9bffaee87b94b0c40a407277fb719c49, type: 3}
   - {fileID: 7687346059037502737, guid: f13569274973b534b850c8f017765a8f, type: 3}
-  GameEndTime: {fileID: 11400000, guid: e25a98f7efb78404ebfd2072fb986d7d, type: 2}
 --- !u!114 &809296809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58424,9 +58422,9 @@ GameObject:
   - component: {fileID: 8248098938369912173}
   - component: {fileID: 8248098938369912175}
   - component: {fileID: 8248098938369912174}
-  - component: {fileID: 8248098938369912178}
-  - component: {fileID: 8248098938369912177}
-  - component: {fileID: 8248098938369912176}
+  - component: {fileID: 8248098938369912182}
+  - component: {fileID: 8248098938369912181}
+  - component: {fileID: 8248098938369912180}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -64654,7 +64652,7 @@ MonoBehaviour:
   _weaponRenderer: {fileID: 7338015801247055424}
   _weaponTransform: {fileID: 6547782260950291075}
   _bullet: {fileID: 8825997391921964759, guid: 8d69403424818874d9a824bae97e4056, type: 3}
-  _bulletSpawnPoint: {fileID: 1144868778165021801}
+  BulletTeir: {fileID: 11400000, guid: dbebddb12de49af4dba75bbf742270eb, type: 2}
   HP: {fileID: 11400000, guid: 77e8274cd6f4c064dbeb57df4a612b2e, type: 2}
   MaxHP: {fileID: 11400000, guid: 45d1e391a3b2f3d4ca9dc191de90193a, type: 2}
   LowHP: {fileID: 11400000, guid: 042d923245f418042ad6aefff6b743bd, type: 2}
@@ -64796,7 +64794,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8248098938369912176
+--- !u!114 &8248098938369912179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809391260862661382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762a2b4940252094e99e8ef5c1caf440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletSpawnPoint: {fileID: 1144868778165021801}
+--- !u!114 &8248098938369912180
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64824,7 +64835,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8248098938369912177
+--- !u!114 &8248098938369912181
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64852,7 +64863,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8248098938369912178
+--- !u!114 &8248098938369912182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64880,20 +64891,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8248098938369912179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2809391260862661382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 762a2b4940252094e99e8ef5c1caf440, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bullet: {fileID: 8825997391921964759, guid: 8d69403424818874d9a824bae97e4056, type: 3}
-  _bulletSpawnPoint: {fileID: 1144868778165021801}
 --- !u!212 &8673634291029609036
 SpriteRenderer:
   m_ObjectHideFlags: 0

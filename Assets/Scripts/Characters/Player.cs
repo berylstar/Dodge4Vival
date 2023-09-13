@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     private float _rotZ = 0f;
 
     private Vector2 _moveInput;
-    private BulletController _bulletController;
+    private BulletFireController _bulletFireController;
 
     [Header("Player")]
     [SerializeField] private SpriteRenderer _playerRenderer;
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
     [Header("Bullet")]
     [SerializeField] private GameObject _bullet;
-    [SerializeField] private Transform _bulletSpawnPoint;
+    public IntVariable BulletTeir;
 
     [Header("Variable")]
     public IntVariable HP;
@@ -59,8 +59,9 @@ public class Player : MonoBehaviour
         I = this;
         HP.Set(MaxHP.i);
         Speed.Set(StartSpeed.i);
+        BulletTeir.Set(1);
         _mainCam = Camera.main;
-        _bulletController = GetComponent<BulletController>();
+        _bulletFireController = GetComponent<BulletFireController>();
     }
 
     private void FixedUpdate()
@@ -130,8 +131,7 @@ public class Player : MonoBehaviour
     {
         if (value.isPressed && _canAttack)
         {
-            //Instantiate(_bullet, _bulletSpawnPoint.position, Quaternion.Euler(0, 0, _rotZ - 90));
-            _bulletController.CreatTeiredBullet(_rotZ - 90, 2);
+            _bulletFireController.CreatTeiredBullet(_bullet, _rotZ - 90, BulletTeir.i);
             StartCoroutine(AttackCoolTimeCo());
         }
     }
@@ -226,6 +226,16 @@ public class Player : MonoBehaviour
 
     public void SetBullet(GameObject bullet)
     {
-        _bullet = bullet;
+        if (_bullet == bullet)
+        {
+            if (BulletTeir.i < 4)
+                BulletTeir.Change(1);
+        }
+        else
+        {
+            BulletTeir.Set(1);
+            _bullet = bullet;
+        }
+            
     }
 }
