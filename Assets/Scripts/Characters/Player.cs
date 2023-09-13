@@ -164,7 +164,7 @@ public class Player : MonoBehaviour
         if (value.isPressed)
         {
             //Debug.Log("SKILL");
-            EventPlayerHeal.Raise();
+            //EventPlayerHeal.Raise();
         }
     }
 

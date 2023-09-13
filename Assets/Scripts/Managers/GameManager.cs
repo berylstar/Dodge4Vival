@@ -48,15 +48,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (_inTime > GameEndTime.f)
-        {
-            GameOver();
-        }
-        else
-        {
-            _inTime += Time.deltaTime;
-            _TimeText.text = _inTime.ToString("N2");
-        }
+        _inTime += Time.deltaTime;
+        _TimeText.text = _inTime.ToString("N2");
     }
 
     public void GameOver()
