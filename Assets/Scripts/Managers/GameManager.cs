@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text _thisScoreText;
 
     [Header("MonsterSpawn")]
-    public IntVariable MonsterFullCount;
     public FloatVariable SpawnCooldownTime;
     public Transform spawnHolder;
 
@@ -29,9 +28,6 @@ public class GameManager : MonoBehaviour
 
     private UnityEvent _spawnEvent = new();
     private int spawnCounter = 0;
-
-    [Header("Variables")]
-    public FloatVariable GameEndTime;
 
     private float _inTime = 0f;
 
@@ -55,8 +51,17 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Time.timeScale = 0.0f;
+
+        if (PlayerPrefs.HasKey("BestScore"))
+        {
+            if (PlayerPrefs.GetFloat("BestScore") < _inTime)
+                PlayerPrefs.SetFloat("BestScore", _inTime);
+        }
+        else
+            PlayerPrefs.SetFloat("BestScore", _inTime);
+
         _bestScoreText.text = _TimeText.text;
-        _thisScoreText.text = _TimeText.text;
+        _thisScoreText.text = PlayerPrefs.GetFloat("BestScore").ToString("N2");
         _endPanel.SetActive(true);
     }
 
@@ -125,7 +130,7 @@ public class GameManager : MonoBehaviour
     private Vector2 RandomSpawnPosition()
     {
         Vector2 RandomVector = (Vector2)player.transform.position + Random.insideUnitCircle.normalized * 6;
-        
+
         float x = Mathf.Max(Mathf.Min(RandomVector.x, 39), -39);
         float y = Mathf.Max(Mathf.Min(RandomVector.y, 27), -28);
 
@@ -141,7 +146,7 @@ public class GameManager : MonoBehaviour
             _spawnEvent.Invoke();
 
             yield return new WaitForSeconds(spawnCooldownTime);
-        }        
+        }
     }
 
     public void OnDestroyAllMonster()
