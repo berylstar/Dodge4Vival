@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     [Header("Weapon")]
     [SerializeField] private SpriteRenderer _weaponRenderer;
     [SerializeField] private Transform _weaponTransform;
+    [SerializeField] private AudioSource _weaponSound;
 
     [Header("Bullet")]
     [SerializeField] private GameObject _bullet;
@@ -138,6 +139,8 @@ public class Player : MonoBehaviour
     {
         if (value.isPressed && _canAttack)
         {
+            _weaponSound.clip = _bullet.GetComponent<Bullet>().data.sound;
+            _weaponSound.Play();
             Instantiate(_bullet, _bulletSpawnPoint.position, Quaternion.Euler(0, 0, _rotZ - 90));
             StartCoroutine(AttackCoolTimeCo());
         }
