@@ -46,7 +46,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Trap
+  - name: Object
     uniqueID: 1708141191
     locked: 0
   - name: Character

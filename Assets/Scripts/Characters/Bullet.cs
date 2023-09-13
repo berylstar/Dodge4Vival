@@ -7,13 +7,6 @@ public class Bullet : MonoBehaviour
     [Header("Status")]
     public BulletData data;
 
-    private int remains;
-
-    private void Awake()
-    {
-        remains = data.remains;
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player") && !collision.CompareTag("Item") && !collision.CompareTag("Trap"))
