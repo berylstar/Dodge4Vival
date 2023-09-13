@@ -74,15 +74,22 @@
 - 스크립터블 오브젝트
     - 데이터 정리
     - 이벤트 관리
+
 - 아이템
     - 요소 디자인 및 프리팹화
     - 아이템 드롭 컨트롤러 구축
+
 - 무기
     - 랜덤 무기 획득 시스템
     - UI
 
 - 플레이어
     - 구르기 기능 추가
+        - InputSystem : SPACE
+        - 애니메이션
+
+- GameEventEditor
+    - 출처 : https://github.com/roboryantron/Unite2017
 
 
 🔽 신현주
