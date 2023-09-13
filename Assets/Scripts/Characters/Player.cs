@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
         _playerRenderer.color = new Color32(200, 100, 100, 255);
         _isInvincible = true;
         StartCoroutine(HitCo());
-        StartCoroutine(HitVameraEffect());
+        StartCoroutine(HitCameraEffect());
     }
 
     private IEnumerator HitCo()
@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
         _isInvincible = false;
     }
 
-    private IEnumerator HitVameraEffect()
+    private IEnumerator HitCameraEffect()
     {
         _mainCam.transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y, -10);
         yield return new WaitForSecondsRealtime(0.1f);

@@ -1,8 +1,10 @@
 # Dodge4Vival
 
-PPT 추가 예정
+[발표 PPT](https://docs.google.com/presentation/d/1TKiOyxPhmPMTmCGOBBr5Aj4L6ehShFg4nScoegQ4WOo/edit#slide=id.g27e4279b86d_5_23)
  
-# 몬스터
+---
+
+### 몬스터
 
 그룹 | 이름|체력|스피드|이동|
 --|--|--|--| -- |
@@ -20,7 +22,7 @@ PPT 추가 예정
 4 | Wogol | 4 | 2 | Follower
 4 | BigDemon | 15 | 3 | Follower
 
-# 레벨 디자인
+### 레벨 디자인
 
 시간(s) | 1 | 2 | 3 | 3-Orge | 4 | 4-BigDemon
 --|--|--|--|--|--|--|
@@ -52,19 +54,20 @@ PPT 추가 예정
         - Left Click : 공격
         - Mouse Scroll : 카메라 확대/축소
     - 애니메이터
+    - 피격 시각 효과
     - 기본 로직 구현
     - 코루틴을 이용한 쿨타임 구현
 
 - 몬스터
-    - 애니메이터
-        - Override Controller 이용
+    - 애니메이터 : Override Controller 활용
+    - 피격 시각 효과
     - 스크립터블 오브젝트로 상수 관리
     - 몬스터 패턴별 분리 구현 : Follower, Straight
 
 - 게임 시스템
     - 몬스터 레벨 디자인
     - 무작위 몬스터 출현 이벤트 구축
-    - 오브젝트 충돌 이벤트 및 시각적 효과 구현
+    - 오브젝트 간 충돌 이벤트 및 시각 효과 구현
 
 - 투사체
     - 요소 디자인 및 프리팹화
@@ -109,5 +112,5 @@ PPT 추가 예정
 🔽 이장원
 - 게임 기본 로직 디자인
 - Grid 및 Tilemap 구현
-- 사운드 요소 관리
+- 청각 효과 관리
 - 게임 테스트 및 밸런스 조정

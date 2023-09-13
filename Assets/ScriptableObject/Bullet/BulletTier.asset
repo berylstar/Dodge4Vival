@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f51ea341b2e32074bba68b729847e8f2, type: 3}
-  m_Name: BulletTeir
+  m_Name: BulletTier
   m_EditorClassIdentifier: 
   i: 0
