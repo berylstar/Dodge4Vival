@@ -7,7 +7,7 @@ public class ItemDropController : MonoBehaviour
     [SerializeField] public FloatVariable MonsterDiePositionX;
     [SerializeField] public FloatVariable MonsterDiePositionY;
 
-    [SerializeField] private Vector2 _newPosition = Vector2.zero;
+    private Vector2 _newPosition = Vector2.zero;
 
     public void DropRandomItem()
     {
