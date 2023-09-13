@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     private float _rotZ = 0f;
 
     private Vector2 _moveInput;
+    private BulletFireController _bulletFireController;
 
     [Header("Player")]
     [SerializeField] private SpriteRenderer _playerRenderer;
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour
 
     [Header("Bullet")]
     [SerializeField] private GameObject _bullet;
-    [SerializeField] private Transform _bulletSpawnPoint;
+    public IntVariable BulletTier;
 
     [Header("Variable")]
     public IntVariable HP;
@@ -59,7 +60,9 @@ public class Player : MonoBehaviour
         I = this;
         HP.Set(MaxHP.i);
         Speed.Set(StartSpeed.i);
+        BulletTier.Set(1);
         _mainCam = Camera.main;
+        _bulletFireController = GetComponent<BulletFireController>();
     }
 
     private void FixedUpdate()
@@ -141,7 +144,7 @@ public class Player : MonoBehaviour
         {
             _weaponSound.clip = _bullet.GetComponent<Bullet>().data.sound;
             _weaponSound.Play();
-            Instantiate(_bullet, _bulletSpawnPoint.position, Quaternion.Euler(0, 0, _rotZ - 90));
+            _bulletFireController.CreatTeiredBullet(_bullet, _rotZ - 90, BulletTier.i);
             StartCoroutine(AttackCoolTimeCo());
         }
     }
@@ -236,6 +239,15 @@ public class Player : MonoBehaviour
 
     public void SetBullet(GameObject bullet)
     {
-        _bullet = bullet;
+        if (_bullet == bullet)
+        {
+            if (BulletTier.i < 4)
+                BulletTier.Change(1);
+        }
+        else
+        {
+            BulletTier.Set(1);
+            _bullet = bullet;
+        }
     }
 }

@@ -58509,6 +58509,7 @@ GameObject:
   - component: {fileID: 6969002431886278518}
   - component: {fileID: 7862261208300234712}
   - component: {fileID: 8248098938369912171}
+  - component: {fileID: 8248098938369912179}
   - component: {fileID: 8248098938369912172}
   - component: {fileID: 8248098938369912173}
   - component: {fileID: 8248098938369912175}
@@ -64840,7 +64841,7 @@ MonoBehaviour:
   _weaponTransform: {fileID: 6547782260950291075}
   _weaponSound: {fileID: 6547782260950291076}
   _bullet: {fileID: 8825997391921964759, guid: 8d69403424818874d9a824bae97e4056, type: 3}
-  _bulletSpawnPoint: {fileID: 1144868778165021801}
+  BulletTier: {fileID: 11400000, guid: dbebddb12de49af4dba75bbf742270eb, type: 2}
   HP: {fileID: 11400000, guid: 77e8274cd6f4c064dbeb57df4a612b2e, type: 2}
   MaxHP: {fileID: 11400000, guid: 45d1e391a3b2f3d4ca9dc191de90193a, type: 2}
   LowHP: {fileID: 11400000, guid: 042d923245f418042ad6aefff6b743bd, type: 2}
@@ -65066,6 +65067,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8248098938369912179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809391260862661382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762a2b4940252094e99e8ef5c1caf440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletSpawnPoint: {fileID: 1144868778165021801}
 --- !u!212 &8673634291029609036
 SpriteRenderer:
   m_ObjectHideFlags: 0
