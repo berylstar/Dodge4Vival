@@ -9,8 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 868d2a4fc94c52d479708d087fd22209, type: 3}
-  m_Name: Pumpkin
+  m_Script: {fileID: 11500000, guid: 7719efdd87299a547b9329325e7baa8d, type: 3}
+  m_Name: ItemProbability
   m_EditorClassIdentifier: 
-  hp: 2
-  speed: 3
+  bomb: 1
+  invinciblePotion: 4
+  axe: 7
+  sword: 12
+  healingPotion: 17
+  speedUpPotion: 22
+  bow: 32
