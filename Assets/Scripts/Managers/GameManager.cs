@@ -60,8 +60,8 @@ public class GameManager : MonoBehaviour
         else
             PlayerPrefs.SetFloat("BestScore", _inTime);
 
-        _bestScoreText.text = _TimeText.text;
-        _thisScoreText.text = PlayerPrefs.GetFloat("BestScore").ToString("N2");
+        _thisScoreText.text = _TimeText.text;
+        _bestScoreText.text = PlayerPrefs.GetFloat("BestScore").ToString("N2");
         _endPanel.SetActive(true);
     }
 
