@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 2
   speed: 3
+  player: {fileID: 11400000, guid: d9eb7d7e85f4f0d468608f88b00c0941, type: 2}

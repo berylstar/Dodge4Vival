@@ -4443,7 +4443,6 @@ GameObject:
   - component: {fileID: 976572364}
   - component: {fileID: 976572363}
   - component: {fileID: 976572368}
-  - component: {fileID: 976572369}
   - component: {fileID: 976572370}
   m_Layer: 5
   m_Name: InGame
@@ -4561,34 +4560,6 @@ MonoBehaviour:
   - {fileID: 1721682955}
   fullHeart: {fileID: 21300000, guid: a2fa4b64472404945b0bc01745327b61, type: 3}
   emptyHeart: {fileID: 21300000, guid: 9bf2d6a1a8cb5d94c8725a5f2fed103f, type: 3}
---- !u!114 &976572369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976572362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a80a7bee7a63844b8b5f649557ac6c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: a74942a1cfad1cc4b862927f2e8e4077, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 976572368}
-        m_TargetAssemblyTypeName: HeartUIViewer, Assembly-CSharp
-        m_MethodName: RemoveHeart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &976572370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7085,6 +7056,42 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8248098938369912171}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnHitAnimator
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 77e8274cd6f4c064dbeb57df4a612b2e, type: 2}
+        m_TargetAssemblyTypeName: IntVariable, Assembly-CSharp
+        m_MethodName: Change
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 976572368}
+        m_TargetAssemblyTypeName: HeartUIViewer, Assembly-CSharp
+        m_MethodName: RemoveHeart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -58511,7 +58518,6 @@ GameObject:
   - component: {fileID: 8248098938369912171}
   - component: {fileID: 8248098938369912179}
   - component: {fileID: 8248098938369912172}
-  - component: {fileID: 8248098938369912173}
   - component: {fileID: 8248098938369912175}
   - component: {fileID: 8248098938369912174}
   - component: {fileID: 8248098938369912178}
@@ -64852,6 +64858,7 @@ MonoBehaviour:
   PlayerRollCooltime: {fileID: 11400000, guid: 48af571120e71654498d146e71d2a411, type: 2}
   InvincibleTime: {fileID: 11400000, guid: 0facb3fca01610b498a37df7b5f4fc69, type: 2}
   SpeedUpTime: {fileID: 11400000, guid: f2f8843807b852246be15287062e7618, type: 2}
+  playerPosition: {fileID: 11400000, guid: d9eb7d7e85f4f0d468608f88b00c0941, type: 2}
   EventPlayerHit: {fileID: 11400000, guid: a74942a1cfad1cc4b862927f2e8e4077, type: 2}
   EventPlayerDie: {fileID: 11400000, guid: bb8e1a5b5913a7648aaa4331b295b4ec, type: 2}
   EventPlayerHeal: {fileID: 11400000, guid: 3d305959802984246bdfac741bff60a7, type: 2}
@@ -64883,46 +64890,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &8248098938369912173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2809391260862661382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a80a7bee7a63844b8b5f649557ac6c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: a74942a1cfad1cc4b862927f2e8e4077, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8248098938369912171}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: OnHitAnimator
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 77e8274cd6f4c064dbeb57df4a612b2e, type: 2}
-        m_TargetAssemblyTypeName: IntVariable, Assembly-CSharp
-        m_MethodName: Change
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

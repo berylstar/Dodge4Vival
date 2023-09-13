@@ -20,14 +20,10 @@ public abstract class Monster : MonoBehaviour
     [SerializeField] public FloatVariable MonsterDiePositionX;
     [SerializeField] public FloatVariable MonsterDiePositionY;
 
-    protected Transform _target;
-
     protected bool _isHit = false;
 
     private void Awake()
     {
-        _target = GameObject.Find("Player").transform;
-
         HP = data.hp;
         speed = data.speed;
     }
