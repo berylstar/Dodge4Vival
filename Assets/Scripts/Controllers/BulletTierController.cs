@@ -2,49 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletFireController : MonoBehaviour
+public class BulletTierController : MonoBehaviour
 {
     private float _bulletCoolTime = 0.12f;
     private GameObject _bullet;
 
     [SerializeField] private Transform _bulletSpawnPoint;
 
-    public void CreatTeiredBullet(GameObject bullet, float rotZ, int tier)
+    public void CreatTieredBullet(GameObject bullet, float rotZ, int tier)
     {
         _bullet = bullet;
         switch (tier)
         {
             case 1:
-                TeirOne(rotZ);
+                TierOne(rotZ);
                 break;
             case 2:
-                StartCoroutine(TeirTwoCo(rotZ));
+                StartCoroutine(TierTwoCo(rotZ));
                 break;
             case 3:
-                StartCoroutine(TeirThree(rotZ));
+                StartCoroutine(TierThree(rotZ));
                 break;
             case 4:
-                StartCoroutine(TeirFour(rotZ));
+                StartCoroutine(TierFour(rotZ));
                 break;
             default:
-                TeirOne(rotZ);
+                TierOne(rotZ);
                 break;
         }
     }
 
-    private void TeirOne(float rotZ)
+    private void TierOne(float rotZ)
     {
         Instantiate(_bullet, _bulletSpawnPoint.position, Quaternion.Euler(0, 0, rotZ));
     }
 
-    private IEnumerator TeirTwoCo(float rotZ)
+    private IEnumerator TierTwoCo(float rotZ)
     {
         Instantiate(_bullet, _bulletSpawnPoint.position, Quaternion.Euler(0, 0, rotZ + 5));
         yield return new WaitForSecondsRealtime(_bulletCoolTime);
         Instantiate(_bullet, _bulletSpawnPoint.position, Quaternion.Euler(0, 0, rotZ - 5));
     }
 
-    private IEnumerator TeirThree(float rotZ)
+    private IEnumerator TierThree(float rotZ)
     {
         Instantiate(_bullet, _bulletSpawnPoint.position, Quaternion.Euler(0, 0, rotZ + 5));
         yield return new WaitForSecondsRealtime(_bulletCoolTime);
@@ -53,7 +53,7 @@ public class BulletFireController : MonoBehaviour
         Instantiate(_bullet, _bulletSpawnPoint.position, Quaternion.Euler(0, 0, rotZ - 5));
     }
 
-    private IEnumerator TeirFour(float rotZ)
+    private IEnumerator TierFour(float rotZ)
     {
         Instantiate(_bullet, _bulletSpawnPoint.position, Quaternion.Euler(0, 0, rotZ + 10));
         yield return new WaitForSecondsRealtime(_bulletCoolTime);

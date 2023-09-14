@@ -819,7 +819,7 @@ MonoBehaviour:
     Bar\n\uC90C \uC778/\uC544\uC6C3 - Mouse Scroll\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 18870de1a0aff76489760c8b2d6c0516, type: 2}
-  m_sharedMaterial: {fileID: 468266169760490769, guid: 18870de1a0aff76489760c8b2d6c0516, type: 2}
+  m_sharedMaterial: {fileID: 5031930926258072557, guid: 18870de1a0aff76489760c8b2d6c0516, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
