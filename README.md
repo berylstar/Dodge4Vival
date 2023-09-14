@@ -1,5 +1,7 @@
 # Dodge4Vival
 
+[시연영상](https://www.youtube.com/watch?v=-6np2qZMkPI)
+
 [발표 PPT](https://docs.google.com/presentation/d/1TKiOyxPhmPMTmCGOBBr5Aj4L6ehShFg4nScoegQ4WOo/edit#slide=id.g27e4279b86d_5_23)
  
 ---
