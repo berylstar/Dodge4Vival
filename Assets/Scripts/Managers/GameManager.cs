@@ -14,10 +14,12 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private GameObject _endPanel;
-    [SerializeField] private TMP_Text _TimeText;
+    [SerializeField] private TMP_Text _timeText;
     [SerializeField] private TMP_Text _bestScoreText;
     [SerializeField] private TMP_Text _thisScoreText;
     [SerializeField] private Image _rollCoolTimeImage;
+    [SerializeField] private TMP_Text _tierText;
+    public IntVariable bulletTier;
 
     [Header("MonsterSpawn")]
     public FloatVariable SpawnCooldownTime;
@@ -47,7 +49,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         _inTime += Time.deltaTime;
-        _TimeText.text = _inTime.ToString("N2");
+        _timeText.text = _inTime.ToString("N2");
     }
 
     public void GameOver()
@@ -62,7 +64,7 @@ public class GameManager : MonoBehaviour
         else
             PlayerPrefs.SetFloat("BestScore", _inTime);
 
-        _thisScoreText.text = _TimeText.text;
+        _thisScoreText.text = _timeText.text;
         _bestScoreText.text = PlayerPrefs.GetFloat("BestScore").ToString("N2");
         _endPanel.SetActive(true);
     }
@@ -86,7 +88,12 @@ public class GameManager : MonoBehaviour
             _rollCoolTimeImage.fillAmount += Time.deltaTime / 3;
             yield return null;
         }
-        
+    }
+
+    public void ShowTier()
+    {
+        char[] tiers = new char[4] { '¥°', '¥±', '¥²', '¥³' };
+        _tierText.text = tiers[bulletTier.i - 1].ToString();
     }
 
     #region MONSTER

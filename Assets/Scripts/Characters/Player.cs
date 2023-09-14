@@ -18,7 +18,6 @@ public class Player : MonoBehaviour
     private float _rotZ = 0f;
 
     private Vector2 _moveInput;
-    private BulletFireController _bulletFireController;
 
     [Header("Player")]
     [SerializeField] private SpriteRenderer _playerRenderer;
@@ -32,6 +31,7 @@ public class Player : MonoBehaviour
 
     [Header("Bullet")]
     [SerializeField] private GameObject _bullet;
+    [SerializeField] private BulletTierController _bulletTierController;
     public IntVariable BulletTier;
 
     [Header("Variable")]
@@ -63,7 +63,6 @@ public class Player : MonoBehaviour
         Speed.Set(StartSpeed.i);
         BulletTier.Set(1);
         _mainCam = Camera.main;
-        _bulletFireController = GetComponent<BulletFireController>();
     }
 
     private void FixedUpdate()
@@ -146,7 +145,7 @@ public class Player : MonoBehaviour
         {
             _weaponSound.clip = _bullet.GetComponent<Bullet>().data.sound;
             _weaponSound.Play();
-            _bulletFireController.CreatTeiredBullet(_bullet, _rotZ - 90, BulletTier.i);
+            _bulletTierController.CreatTieredBullet(_bullet, _rotZ - 90, BulletTier.i);
             StartCoroutine(AttackCoolTimeCo());
         }
     }
